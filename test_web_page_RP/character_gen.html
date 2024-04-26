@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- Defining the document type as HTML5 -->
+<html lang="en"> <!-- Declaring the language of the document as English -->
+<head>
+	<meta charset="UTF-8"> <!-- Setting the character encoding to UTF-8 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuring the viewport meta tag to ensure proper rendering on various devices -->
+	<title>Character example</title> <!-- Setting the title of the webpage -->
+	<!-- Adding CSS styles to the document -->
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body, html {
+			font-family: "Intro", sans-serif; 
+			font-size: 15px;
+			margin: 0;
+			padding: 0;
+			font-family: Georgia;
+			min-height: 100vh;
+			height: 100%;
+			min-width: 100vw;
+			width: 100%;
+			overflow-x: hidden;
+		}
+		.top_bar_style{
+			position: fixed;
+			z-index: 2;
+			height: 5rem;
+			width: 100%;
+			font-size: 20pt;
+			font-family: Old English Text MT;
+			text-align: center;
+			color: #fff;       /*Text color*/
+			background: rgb(153,236,219);
+			background: linear-gradient(180deg, rgb(23, 85, 73) 0%, rgba(231,244,232,0) 100%);
+			padding: 10px 20px 20px 10px; /* padding top, right, botton, left */
+		}
+		.col {
+			padding-top: 4.5rem;
+		}
+		.left-column {
+			background-color: #03821d; /* Background color */
+			background: rgb(71,255,86);
+			background: linear-gradient(90deg, rgba(71,255,86,0.7175245098039216) 0%, rgba(0,212,255,1) 100%);
+			padding-left: 1em;
+			min-height: 100%;
+			width: 20%;
+			display: inline-block;
+			position: fixed;
+			border-right: thick double #32a1ce;
+		}
+		/* Styles for the main content */
+		.main-content {
+			font-size: 15pt;
+			background: rgb(0,212,255);
+			background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(71,255,86,0.7175245098039216) 100%);
+			padding-left: 3em;
+			min-height: 100%;
+			width: 80%;
+			display: inline-block;
+			position: absolute;
+			right: 0;
+		}
+		.WrapImm{
+			float: left;    
+			margin: 0 15px 10px 0;
+			width: 200px;
+		}
+		.list{
+			padding-left: 1em;
+			font-size: 15pt;
+		}
+		#character_link_list{
+			padding-left: 1em;
+			font-size: 15pt;
+		}
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		th{
+			border-bottom: 2px solid black;
+		}
+		tr:nth-child(even){
+			background-color: #50e9526a;
+		}
+		tr:nth-child(odd) {
+			background-color: #09eaea83;
+		}
+		td:nth-child(2), th:nth-child(1){
+			border-right: 3px solid #000000;
+		}
+	</style>
+</head>
+
+<body style="background-color:rgb(39, 160, 187);">
+	<div class="top_bar_style">
+			Character's Background
+	</div>
+	<!-- Left column -->
+	<div class="left-column col">
+		<h1>
+			Setup
+		</h1>
+		<ul class="list">
+			<li>
+				<a href="database_character.html">Character Database</a>
+			</li>
+		</ul>
+		<hr>
+		<h1>Character list</h1>
+		<ul id="character_link_list"></ul>
+	</div>
+	<div class="main-content col">
+		
+	</div>
+	<script src="character_gen_script.js"></script>
+</body>
+</html>

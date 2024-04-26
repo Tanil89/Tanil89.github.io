@@ -1,0 +1,206 @@
+<!DOCTYPE html> <!-- Defining the document type as HTML5 -->
+<html lang="en"> <!-- Declaring the language of the document as English -->
+<head>
+	<meta charset="UTF-8"> <!-- Setting the character encoding to UTF-8 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuring the viewport meta tag to ensure proper rendering on various devices -->
+	<title>Character example</title> <!-- Setting the title of the webpage -->
+	<!-- Adding CSS styles to the document -->
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body, html {
+			font-family: "Intro", sans-serif; 
+			font-size: 15px;
+			margin: 0;
+			padding: 0;
+			font-family: Georgia;
+			min-height: 100vh;
+			height: 100%;
+			min-width: 100vw;
+			width: 100%;
+			overflow-x: hidden;
+		}
+		.top_bar_style{
+			position: fixed;
+			z-index: 2;
+			height: 5rem;
+			width: 100%;
+			font-size: 20pt;
+			font-family: Old English Text MT;
+			text-align: center;
+			color: #fff;       /*Text color*/
+			background: rgb(153,236,219);
+			background: linear-gradient(180deg, rgb(23, 85, 73) 0%, rgba(231,244,232,0) 100%);
+			padding: 10px 20px 20px 10px; /* padding top, right, botton, left */
+		}
+		.col {
+			padding-top: 4.5rem;
+		}
+		.left-column {
+			background-color: #03821d; /* Background color */
+			background: rgb(71,255,86);
+			background: linear-gradient(90deg, rgba(71,255,86,0.7175245098039216) 0%, rgba(0,212,255,1) 100%);
+			padding-left: 1em;
+			min-height: 100%;
+			width: 20%;
+			display: inline-block;
+			position: fixed;
+			border-right: thick double #32a1ce;
+		}
+		/* Styles for the main content */
+		.main-content {
+			font-size: 15pt;
+			background: rgb(0,212,255);
+			background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(71,255,86,0.7175245098039216) 100%);
+			padding-left: 3em;
+			min-height: 100%;
+			width: 80%;
+			display: inline-block;
+			position: absolute;
+			right: 0;
+		}
+		.WrapImm{
+			float: left;    
+			margin: 0 15px 10px 0;
+			width: 200px;
+		}
+		.list{
+			padding-left: 1em;
+			font-size: 15pt;
+		}
+		#character_link_list{
+			padding-left: 1em;
+			font-size: 15pt;
+		}
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		th{
+			border-bottom: 2px solid black;
+		}
+		tr:nth-child(even){
+			background-color: #50e9526a;
+		}
+		tr:nth-child(odd) {
+			background-color: #09eaea83;
+		}
+		td:nth-child(2), th:nth-child(1){
+			border-right: 3px solid #000000;
+		}
+	</style>
+</head>
+
+<body style="background-color:rgb(39, 160, 187);">
+	<div class="top_bar_style">
+			Character's Background
+	</div>
+	<!-- Left column -->
+	<div class="left-column col">
+		<h1>
+			Setup
+		</h1>
+		<ul class="list">
+			<li>
+				<a href="character_gen.html">Character Generator</a>
+			</li>
+		</ul>
+		<hr>
+		<h1>Character list</h1>
+		<ul id="character_link_list" class="list"></ul>
+	</div>
+	<div class="main-content col">
+		<img id="pg_imm" src="" class="WrapImm"/>
+		<p id="PGinfo">
+			<strong>Name:</strong> None  <br>
+			<strong>Race:</strong> None<br>
+			<strong>Class:</strong> None
+		</p>
+		<strong>Background Story:</strong><br>
+		<div id="Background">
+			<h1>Select a character to view from the list on the left</h1>
+		</div>
+		<h2>Classes</h2>
+		<div>
+			<ul id="list_classes">
+				<li>Loremaster 4</li>
+				<ul>
+					<li>
+						Focused: 2
+					</li>
+					<li>
+						Flash of insight: 1
+					</li>
+					<li>
+						Knowledge is power: 1
+					</li>
+				</ul>
+				<li>
+					Sharpshooter
+				</li>
+				<ul>
+					<li>
+						Crossfire
+					</li>
+				</ul>
+			</ul>
+		</div>
+		<p>
+			The focus of this support build is high test study to know the vulnerabilities of enemies. This feature is also useful outside of combat.<br>
+			Remember, despite a Study Test, the special rules cannot be revealed, if the Study Test is greater than 13, with Flash of Insight you can ask the Master to reveal it.
+			Knowledge is Power is a filler talent to improve combat skills outside the study test.<br>
+			In conclusion, we add as second class Sharpshooter, since we don't have any skill that uses MP, we have Crossfire that can help to prevent the enemy's ranged attack and that is also help in action economy since it is a free action.
+		</p>
+		<table style="width: 50%;">
+			<tr>
+				<th colspan="2">Name</th>
+				<th>Level</th>
+				<th>5</th>
+			</tr>
+			<tr>
+				<td>Dexterity</td>
+				<td>d8</td>
+				<td>Defense</td>
+				<td>DEX+3 = 11</td>
+			</tr>
+			<tr>
+				<td>Insight</td>
+				<td>d10</td>
+				<td>Magic Defense</td>
+				<td>INS+3 = 13</td>
+			</tr>
+			<tr>
+				<td>Might</td>
+				<td>d6</td>
+				<td>HP</td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td>Willpower</td>
+				<td>d8</td>
+				<td>MP</td>
+				<td>56</td>
+			</tr>
+
+
+			<tr>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Zenit</td>
+				<td>100</td>
+				<td>IP</td>
+				<td>6</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+	</div>
+	<script src="database_character_script.js"></script>
+</body>
+</html>
