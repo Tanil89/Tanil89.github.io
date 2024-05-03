@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="coffee">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.min.css"
+        rel="stylesheet"
+        type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp,container-queries"></script>
+    <title>Hello World</title>
+</head>
+<body>
+    <div class="navbar bg-base-100">
+        <div class="flex-none">
+            <div class="drawer">
+                <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content">
+                    <label for="my-drawer" class="btn btn-primary drawer-button">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" fill="none" 
+                            viewBox="0 0 24 24" 
+                            class="inline-block w-5 h-5 stroke-current">
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="2" 
+                                d="M4 6h16M4 12h16M4 18h16">
+                            </path>
+                        </svg>
+                    </label>
+                </div> 
+                <div class="drawer-side">
+                    <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                    <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content" id="drawer-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl" href="#!">Home</a>
+            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">Characters</a>
+            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">GM</a>
+            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">Blog</a>
+        </div>
+        <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="inline-block w-5 h-5 stroke-current">
+                    <path 
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                    </path>
+                </svg>
+            </button>
+            <div>
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn m-1">
+                        Theme
+                        <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+                    </div>
+                    <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="CHARACTER" value="default"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Emerald" value="emerald"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Halloween" value="halloween"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Forest" value="forest"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dracula" value="dracula"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Autumn" value="autumn"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Business" value="business"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Night" value="night"/></li>
+                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Coffee" value="coffee"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-center h-full">
+        <article class="prose prose-xl m-5" id="main">
+            
+        </article>
+    </div>
+    <footer class="footer-center p-10 bg-base-200">
+        <aside>
+            CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)
+        </aside>
+    </footer>
+    <script>
+        // theme manager
+        const newTheme = localStorage.getItem( '_pageTheme' )
+        if ( newTheme ) document.querySelector( `input[name="theme-dropdown"][value="${newTheme}"]` ).checked = true
+        Array.from( document.querySelectorAll( 'input[name="theme-dropdown"]' ) ).forEach( el => {
+            el.addEventListener( 'change', (ev) => {
+                localStorage.setItem( '_pageTheme', el.value )
+            })
+        })
+        // refresh
+        let _strRoute, _idScrollTo, _route
+        let DB_json = {}
+        async function _refresh() {
+            [_strRoute, _idScrollTo] = window.location.hash.replace( /^#!/, '' ).split( '#' )
+            _route = _strRoute.split( '/' )
+            document.getElementById( _idScrollTo )?.scrollIntoView()
+            if (!_route[0]) {
+                _route[0] = "Home"
+            }
+            let cursor = DB_json
+            let parent = DB_json
+            _route.forEach( el => { 
+                parent = cursor
+                cursor = cursor.children[el]
+            })
+            const tale = await(await fetch( cursor.link )).text()
+            document.getElementById('main' ).innerHTML = tale;
+            // -- ---- -- --
+
+            const navlist = []
+
+            Object.keys(parent.children).forEach( el => {
+                navlist.push( `<li><a href="#!${[_route[0]]}/${_route[1]}/${el}">${el.replace("_", " ")}</a> </li>`)
+
+            })
+            document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
+            // --------------
+            document.documentElement.dataset.theme = parent.meta.theme
+            console.log(parent.meta.theme)
+
+            Array.from( document.querySelectorAll( 'pre[data-script]' ) ).forEach( el => {
+                const newScript = document.createElement( 'script' )
+                const inlineScript = document.createTextNode( el.innerHTML )
+                newScript.appendChild( inlineScript )
+                document.body.appendChild( newScript )
+                el.remove()
+            })
+        }
+        document.addEventListener( 'click', async (ev) => {
+            const el = ev.target.closest( 'a[href^="#!"]' )
+            if ( !el ) return;
+            window.location.hash = el.getAttribute( 'href' )
+            await _refresh()
+            ev.preventDefault()
+        })
+        ;(async () => {
+            DB_json = await(await fetch( "sitemap.json" )).json()
+            await _refresh()
+        })();
+        </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{   "meta":{
+        "theme": "coffee"
+    },
+    "children": {
+        "Home": {
+            "link":"/pages/home/home.html"
+        },
+        "Char": {
+            "link":"",
+            "children":{
+                "AalisWintercrest": {
+                    "meta":{
+                        "Name": "Aalis Wintercrest",
+                        "Game System": "Fabula Ultima",
+                        "Game Type": "Fantasy",
+                        "theme": "aqua"
+                    },
+                    "children": {
+                        "Background": {"link": "/pages/characters/Aalis_Wintercrest_BG.html"},
+                        "Chapter_1": {"link":"/pages/characters/Aalis_Wintercrest_chapter_0.html"},
+                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
+                    }
+                },
+                "AalisWintercrest_2": {
+                    "meta":{
+                        "Name": "Aalis Wintercrest",
+                        "Game System": "Fabula Ultima",
+                        "Game Type": "Fantasy"
+                    },
+                    "children": {
+                        "Background": {"link":"/pages/characters/Aalis_Wintercrest_BG.html"},
+                        "Chapter_1": {"link":"/pages/characters/Aalis_Wintercrest_chapter_0.html"},
+                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
+                    }
+                }
+            }
+        },
+        "GM": {
+            "link": "/pages/characters/GM.html",
+            "children": {
+                "GM_1": {"link": "/pages/characters/GM_1.html"},
+                "GM_2": {"link": "/pages/characters/GM_2.html"},
+                "GM_3": {"link": "/pages/characters/GM_3.html"}
+            },
+            "meta":{
+                "theme": "coffee"
+            }
+        }
+    }
+}
