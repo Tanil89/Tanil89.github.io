@@ -8,12 +8,17 @@
             "link":"/pages/home/home.html"
         },
         "Char": {
+            "meta":{
+                "theme": "aqua",
+                "table": ["Name", "Game System", "sdas", "Game Type"]
+            },
             "children":{
                 "AalisWintercrest": {
                     "meta":{
                         "Name": "Aalis Wintercrest",
                         "Game System": "Fabula Ultima",
                         "Game Type": "Fantasy",
+                        "dasoifasldfhaols": "dasoifasldfhaols",
                         "theme": "emerald"
                     },
                     "children": {
@@ -34,9 +39,8 @@
                 },
                 "AalisWintercrest2": {
                     "meta":{
-                        "Name": "Aalis Wintercrest",
-                        "Game System": "Fabula Ultima",
-                        "Game Type": "Fantasy",
+                        "Name": "Aalis Wintercrest 2",
+                        "Game System": "Fabula Ultim a 2",
                         "theme": "emerald"
                     },
                     "children": {
@@ -69,10 +73,9 @@
             }
         },
         "Blog": {
-            "link": "/pages/blog/home_blog.html",
             "children": {
                 "Blog1": {
-                    "link": "/pages/blog/blog.html",
+                    "link": "/pages/blog/home_blog.html",
                     "meta":{
                         "theme": "dracula",
                         "titlepage": "Tanil Blog 1"

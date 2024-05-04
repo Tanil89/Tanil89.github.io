@@ -1,10 +1,36 @@
-<ul id="subpages"></ul>
 
+<div id="subpages"></div>
 <textarea data-script style="display: none !important;">
-    const navlist = []
-    Object.keys(_page?.curr?.children ).forEach( el => {
-        navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
-    })
-    document.getElementById( 'subpages' ).innerHTML = navlist.join( '\n' )
-</textarea>
+    if ( _page?.curr?.meta?.table  ){
+        const navlist = ['<div class="overflow-x-auto">\n<table class="table">\n<thead>\n<tr>\n']
 
+        _page?.curr?.meta?.table.forEach( el => {
+            navlist.push( `<th>${el}</th>` )
+        })
+        navlist.push( `<td>link</td>` )
+        navlist.push('\n</tr>\n</thead>\n<tbody>\n')
+
+
+        Object.keys(_page?.curr?.children).forEach( row => {
+            navlist.push( ` <tr>\n` )
+            _page?.curr?.meta?.table.forEach( meta => {
+                if ( _page?.curr?.children[row].meta[meta] ) {
+                    navlist.push( `<td>${_page?.curr?.children[row].meta[meta]}</td>` )
+                } else {
+                    navlist.push( `<td></td>` )
+                }
+            })
+            navlist.push( `<td><a href="#!${_route.join('/')}/${row}"> link</a></td>` )
+            navlist.push( '</tr>\n' )
+        })
+        navlist.push('\n</tbody>\n</table>\n</div>')
+        document.getElementById( 'subpages' ).innerHTML = navlist.join( '\n' )
+    } else {
+        const navlist = ["<ul>"]
+        Object.keys(_page?.curr?.children ).forEach( el => {
+            navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+        })
+        navlist.push("</ul>")
+        document.getElementById( 'subpages' ).innerHTML = navlist.join( '\n' )
+    }
+</textarea>
