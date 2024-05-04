@@ -111,6 +111,10 @@
         // refresh
         let _strRoute, _idScrollTo, _route
         let DB_json = {}
+        const _page = {
+            curr: {},
+            parents: {},
+        }
         async function _refresh() {
             [_strRoute, _idScrollTo] = window.location.hash.replace( /^#!\/?/, '' ).split( '#' )
             _route = _strRoute.split( '/' )
@@ -118,39 +122,50 @@
             if (!_route[0]) {
                 _route[0] = "Home"
             }
-            let cursor = DB_json
-            const parents = [ ]
+            _page.curr = DB_json
+            _page.parents = [ ]
             _route.forEach( el => { 
-                parents.push(cursor)
-                cursor = cursor.children[el]
+                _page.parents.push(_page.curr)
+                _page.curr = _page?.curr?.children[el]
             })
-            const parent = parents[parents.length - 1]
-            const tale = await(await fetch( cursor.link || "autoindex.html" )).text()
+            const parent = _page.parents[_page.parents.length - 1]
+            const tale = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
             document.getElementById('main' ).innerHTML = tale;
             //  Drawler list
             const navlist = [ ]
-            Object.keys(parent.children).forEach( el => {
-                navlist.push( `<li><a href="#!${_route.slice(0, -1).join('/')}/${el}">${el.replace("_", " ")}</a> </li>`)
+            Object.keys(DB_json.children).forEach( el => {
+                navlist.push( `<li><a href="#!${el}">${el.replace("_", " ")}</a> </li>`)
             })
             
-            if (cursor.children) {
+            if (_page?.curr?.children  ) {
                 navlist.push( '<div class="divider divider-accent"></div>' )
-                Object.keys(cursor.children).forEach( el => {
+                Object.keys(_page?.curr?.children ).forEach( el => {
                     navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
                 })
             }
-
-            
+            if (parent?.children && parent !== DB_json ) {
+                navlist.push( '<div class="divider divider-accent"></div>' )
+                Object.keys(parent?.children).forEach( el => {
+                    navlist.push( `<li><a href="#!${_route.slice(0, -1).join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+                })
+            }
+            const grandparent = _page.parents[_page.parents.length-2]
+            if (!_page?.curr?.children && grandparent && grandparent !== DB_json ) {
+                navlist.push( '<div class="divider divider-accent"></div>' )
+                Object.keys(grandparent?.children).forEach( el => {
+                    navlist.push( `<li><a href="#!${_route.slice(0, -2).join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+                })
+            }
 
             document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
             // Meta manager
-            document.documentElement.dataset.theme = cursor?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
-            document.title = cursor?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
+            document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
+            document.title = _page.curr?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
             // Pre script for script in article
-            Array.from( document.querySelectorAll( 'pre[data-script]' ) ).forEach( el => {
+            Array.from( document.querySelectorAll( 'textarea[data-script]' ) ).forEach( el => {
                 const newScript = document.createElement( 'script' )
-                const inlineScript = document.createTextNode( el.innerHTML )
-                newScript.appendChild( inlineScript )
+                newScript.setAttribute('type', 'module')
+                newScript.innerHTML = el.value
                 document.body.appendChild( newScript )
                 el.remove()
             })
