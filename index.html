@@ -15,7 +15,7 @@
 <body>
     <div class="navbar bg-base-100">
         <div class="flex-none">
-            <div class="drawer z-50">
+            <div class="drawer z-50 capitalize">
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">
                     <label for="my-drawer" class="btn btn-primary drawer-button">
@@ -57,9 +57,9 @@
                 <span class="hidden sm:inline">Home</span>
             </a>
             <div class="hidden sm:inline-block">
-                <a class="btn btn-ghost text-xl" href="#!Char">Characters</a>
+                <a class="btn btn-ghost text-xl" href="#!characters">Characters</a>
                 <a class="btn btn-ghost text-xl" href="#!GM">GM</a>
-                <a class="btn btn-ghost text-xl" href="#!Blog">Blog</a>
+                <a class="btn btn-ghost text-xl" href="#!blog">Blog</a>
             </div>
         </div>
         <div class="flex-none">
@@ -88,6 +88,7 @@
         </div>
     </div>
     <div class="flex items-center justify-center h-full">
+        <div class="text-sm breadcrumbs" id="breadcrumbs_over_article"></div>
         <article class="prose prose-xl m-5" id="main">
             
         </article>
@@ -116,11 +117,11 @@
             parents: {},
         }
         async function _refresh() {
-            [_strRoute, _idScrollTo] = window.location.hash.replace( /^#!\/?/, '' ).split( '#' )
+            [_strRoute, _idScrollTo] = decodeURIComponent(window.location.hash).replace( /^#!\/?/, '' ).split( '#' )
             _route = _strRoute.split( '/' )
             document.getElementById( _idScrollTo )?.scrollIntoView()
             if (!_route[0]) {
-                _route[0] = "Home"
+                _route[0] = "home"
             }
             _page.curr = DB_json
             _page.parents = [ ]
@@ -157,7 +158,7 @@
                 })
             }
 
-            document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
+
             // Meta manager
             document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
             document.title = _page.curr?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage

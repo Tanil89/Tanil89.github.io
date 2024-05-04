@@ -4,21 +4,21 @@
         "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections"
     },
     "children": {
-        "Home": {
+        "home": {
             "link":"/pages/home/home.html"
         },
-        "Char": {
+        "characters": {
             "meta":{
                 "theme": "aqua",
-                "table": ["Name", "Game System", "sdas", "Game Type"]
+                "label": "/pages/home/home.html",
+                "table": ["name", "game system", "game type"]
             },
             "children":{
-                "AalisWintercrest": {
+                "Aalis Wintercrest": {
                     "meta":{
-                        "Name": "Aalis Wintercrest",
-                        "Game System": "Fabula Ultima",
-                        "Game Type": "Fantasy",
-                        "dasoifasldfhaols": "dasoifasldfhaols",
+                        "name": "Aalis Wintercrest",
+                        "game system": "Fabula Ultima",
+                        "game type": "Fantasy",
                         "theme": "emerald"
                     },
                     "children": {
@@ -37,10 +37,11 @@
                         "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
                     }
                 },
-                "AalisWintercrest2": {
+                "Aalis Wintercrest 2": {
                     "meta":{
-                        "Name": "Aalis Wintercrest 2",
-                        "Game System": "Fabula Ultim a 2",
+                        "name": "Aalis Wintercrest",
+                        "game system": "Fabula Ultima",
+                        "game type": "Fantasy",
                         "theme": "emerald"
                     },
                     "children": {
@@ -50,13 +51,13 @@
                                 "theme": "dracula"
                             }
                         },
-                        "Chapter_1": {
+                        "Chapter 1": {
                             "link":"/pages/characters/Aalis_Wintercrest_chapter_0.html",
                             "meta":{
                                 "theme": "aqua"
                             }
                         },
-                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
+                        "Chapter 2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
                     }
                 }
             }
@@ -72,7 +73,7 @@
                 "theme": "coffee"
             }
         },
-        "Blog": {
+        "blog": {
             "children": {
                 "Blog1": {
                     "link": "/pages/blog/home_blog.html",

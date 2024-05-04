@@ -1,13 +1,14 @@
-
-<div id="subpages"></div>
+<div id="_ai_subpages"></div>
 <textarea data-script style="display: none !important;">
+
+    const navlist = []
     if ( _page?.curr?.meta?.table  ){
-        const navlist = ['<div class="overflow-x-auto">\n<table class="table">\n<thead>\n<tr>\n']
+        navlist.push('<div class="overflow-x-auto ">\n<table class="table hidden md:table">\n<thead class="capitalize">\n<tr>\n')
 
         _page?.curr?.meta?.table.forEach( el => {
             navlist.push( `<th>${el}</th>` )
         })
-        navlist.push( `<td>link</td>` )
+        navlist.push( `<th>link</th>` )
         navlist.push('\n</tr>\n</thead>\n<tbody>\n')
 
 
@@ -20,17 +21,19 @@
                     navlist.push( `<td></td>` )
                 }
             })
-            navlist.push( `<td><a href="#!${_route.join('/')}/${row}"> link</a></td>` )
+            navlist.push( `<td><a href="#!${_route.join('/')}/${row}"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+              </a></td>` )
             navlist.push( '</tr>\n' )
         })
         navlist.push('\n</tbody>\n</table>\n</div>')
-        document.getElementById( 'subpages' ).innerHTML = navlist.join( '\n' )
-    } else {
-        const navlist = ["<ul>"]
-        Object.keys(_page?.curr?.children ).forEach( el => {
-            navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
-        })
-        navlist.push("</ul>")
-        document.getElementById( 'subpages' ).innerHTML = navlist.join( '\n' )
     }
+    navlist.push(`<ul class="block ${_page?.curr?.meta?.table ? 'md:hidden' : ''}">`)
+    Object.keys(_page?.curr?.children ).forEach( el => {
+        navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+    })
+    navlist.push("</ul>")
+    document.getElementById( '_ai_subpages' ).innerHTML = navlist.join( '\n' )
+
 </textarea>
