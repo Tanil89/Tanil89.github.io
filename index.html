@@ -87,10 +87,9 @@
             </div>
         </div>
     </div>
-    <div class="flex items-center justify-center h-full">
-        <div class="text-sm breadcrumbs" id="breadcrumbs_over_article"></div>
+    <div class="flex flex-col items-center justify-center h-full">
+        <div class="text-sm breadcrumbs capitalize w-full max-w-prose" id="breadcrumbs_over_article"></div>
         <article class="prose prose-xl m-5" id="main">
-            
         </article>
     </div>
     <footer class="footer footer-center p-10 bg-neutral text-neutral-content w-full">
@@ -130,8 +129,8 @@
                 _page.curr = _page?.curr?.children[el]
             })
             const parent = _page.parents[_page.parents.length - 1]
-            const tale = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
-            document.getElementById('main' ).innerHTML = tale;
+
+            document.getElementById('main' ).innerHTML = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
             //  Drawler list
             const navlist = [ ]
             Object.keys(DB_json.children).forEach( el => {
@@ -157,12 +156,20 @@
                     navlist.push( `<li><a href="#!${_route.slice(0, -2).join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
                 })
             }
+            document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
 
 
-            // Meta manager
+            bread_path = ['<ul>']
+            _route.forEach( (el, i) => {
+                bread_path.push( `<li><a href="#!${_route.slice(0,i+1).join('/')}"><div class="badge badge-neutral ">${el}</div></a></li>` )
+            })
+            bread_path.push('</ul>')
+            document.getElementById( 'breadcrumbs_over_article' ).innerHTML = bread_path.join( '\n' )
+            console.log(navlist)
+            // Metadata handler
             document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
             document.title = _page.curr?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
-            // Pre script for script in article
+            // Inject article scripts
             Array.from( document.querySelectorAll( 'textarea[data-script]' ) ).forEach( el => {
                 const newScript = document.createElement( 'script' )
                 newScript.setAttribute('type', 'module')
