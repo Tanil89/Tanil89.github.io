@@ -1,12 +1,14 @@
 {   "meta":{
-        "theme": "coffee"
+        "comment":"here there is all general meta of this website", 
+        "theme": "coffee",
+        "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections"
     },
     "children": {
         "Home": {
             "link":"/pages/home/home.html"
         },
         "Char": {
-            "link":"",
+            "link":"/pages/characters/Aalis_Wintercrest_BG.html",
             "children":{
                 "AalisWintercrest": {
                     "meta":{
@@ -16,34 +18,72 @@
                         "theme": "emerald"
                     },
                     "children": {
-                        "Background": {"link": "/pages/characters/Aalis_Wintercrest_BG.html"},
-                        "Chapter_1": {"link":"/pages/characters/Aalis_Wintercrest_chapter_0.html"},
+                        "Background": {
+                            "link": "/pages/characters/Aalis_Wintercrest_BG.html",
+                            "meta":{
+                                "theme": "dracula"
+                            }
+                        },
+                        "Chapter_1": {
+                            "link":"/pages/characters/Aalis_Wintercrest_chapter_0.html",
+                            "meta":{
+                                "theme": "aqua"
+                            }
+                        },
                         "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
                     }
                 },
-                "AalisWintercrest_2": {
+                "AalisWintercrest2": {
                     "meta":{
                         "Name": "Aalis Wintercrest",
                         "Game System": "Fabula Ultima",
-                        "Game Type": "Fantasy"
+                        "Game Type": "Fantasy",
+                        "theme": "emerald"
                     },
                     "children": {
-                        "Background": {"link":"/pages/characters/Aalis_Wintercrest_BG.html"},
-                        "Chapter_1": {"link":"/pages/characters/Aalis_Wintercrest_chapter_0.html"},
+                        "Background": {
+                            "link": "/pages/characters/Aalis_Wintercrest_BG.html",
+                            "meta":{
+                                "theme": "dracula"
+                            }
+                        },
+                        "Chapter_1": {
+                            "link":"/pages/characters/Aalis_Wintercrest_chapter_0.html",
+                            "meta":{
+                                "theme": "aqua"
+                            }
+                        },
                         "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
                     }
                 }
             }
         },
         "GM": {
-            "link": "/pages/characters/GM.html",
+            "link": "/pages/GM/home_GM.html",
             "children": {
-                "GM_1": {"link": "/pages/characters/GM_1.html"},
+                "GM_1": {"link": "/pages/characters/GM.html"},
                 "GM_2": {"link": "/pages/characters/GM_2.html"},
                 "GM_3": {"link": "/pages/characters/GM_3.html"}
             },
             "meta":{
                 "theme": "coffee"
+            }
+        },
+        "Blog": {
+            "link": "/pages/blog/home_blog.html",
+            "children": {
+                "Blog1": {
+                    "link": "/pages/blog/blog.html",
+                    "meta":{
+                        "theme": "dracula",
+                        "titlepage": "Tanil Blog 1"
+                    }
+                },
+                "GM_2": {"link": "/pages/characters/GM_2.html"},
+                "GM_3": {"link": "/pages/characters/GM_3.html"}
+            },
+            "meta":{
+                "theme": "aqua"
             }
         }
     }

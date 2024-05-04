@@ -15,7 +15,7 @@
 <body>
     <div class="navbar bg-base-100">
         <div class="flex-none">
-            <div class="drawer">
+            <div class="drawer z-50">
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">
                     <label for="my-drawer" class="btn btn-primary drawer-button">
@@ -41,26 +41,28 @@
             </div>
         </div>
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl" href="#!">Home</a>
-            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">Characters</a>
-            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">GM</a>
-            <a class="btn btn-ghost text-xl" href="#!Char/AalisWintercrest/Background">Blog</a>
+            <a class="btn btn-ghost text-xl" href="#!">
+                <svg 
+                    class="inline-block w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    strokeWidth={1.5} 
+                    stroke="currentColor">
+                    <path strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                </svg>
+                <span class="hidden sm:inline">Home</span>
+            </a>
+            <div class="hidden sm:inline-block">
+                <a class="btn btn-ghost text-xl" href="#!Char">Characters</a>
+                <a class="btn btn-ghost text-xl" href="#!GM">GM</a>
+                <a class="btn btn-ghost text-xl" href="#!Blog">Blog</a>
+            </div>
         </div>
         <div class="flex-none">
-            <button class="btn btn-square btn-ghost">
-                <svg 
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    class="inline-block w-5 h-5 stroke-current">
-                    <path 
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
-                    </path>
-                </svg>
-            </button>
             <div>
                 <div class="dropdown dropdown-end">
                     <div tabindex="0" role="button" class="btn m-1">
@@ -110,32 +112,41 @@
         let _strRoute, _idScrollTo, _route
         let DB_json = {}
         async function _refresh() {
-            [_strRoute, _idScrollTo] = window.location.hash.replace( /^#!/, '' ).split( '#' )
+            [_strRoute, _idScrollTo] = window.location.hash.replace( /^#!\/?/, '' ).split( '#' )
             _route = _strRoute.split( '/' )
             document.getElementById( _idScrollTo )?.scrollIntoView()
             if (!_route[0]) {
                 _route[0] = "Home"
             }
             let cursor = DB_json
-            let parent = DB_json
+            const parents = [ ]
             _route.forEach( el => { 
-                parent = cursor
+                parents.push(cursor)
                 cursor = cursor.children[el]
             })
-            const tale = await(await fetch( cursor.link )).text()
+            const parent = parents[parents.length - 1]
+            const tale = await(await fetch( cursor.link || "autoindex.html" )).text()
             document.getElementById('main' ).innerHTML = tale;
-            // -- ---- -- --
-
-            const navlist = []
-
+            //  Drawler list
+            const navlist = [ ]
             Object.keys(parent.children).forEach( el => {
-                navlist.push( `<li><a href="#!${[_route[0]]}/${_route[1]}/${el}">${el.replace("_", " ")}</a> </li>`)
-
+                navlist.push( `<li><a href="#!${_route.slice(0, -1).join('/')}/${el}">${el.replace("_", " ")}</a> </li>`)
             })
-            document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
-            // --------------
-            document.documentElement.dataset.theme = parent.meta.theme
+            
+            if (cursor.children) {
+                navlist.push( '<div class="divider divider-accent"></div>' )
+                Object.keys(cursor.children).forEach( el => {
+                    navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+                })
+            }
 
+            
+
+            document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
+            // Meta manager
+            document.documentElement.dataset.theme = cursor?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
+            document.title = cursor?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
+            // Pre script for script in article
             Array.from( document.querySelectorAll( 'pre[data-script]' ) ).forEach( el => {
                 const newScript = document.createElement( 'script' )
                 const inlineScript = document.createTextNode( el.innerHTML )
