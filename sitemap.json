@@ -5,13 +5,17 @@
     },
     "children": {
         "home": {
-            "link":"/pages/home/home.html"
+            "link":"/pages/home/home.html",
+            "meta":{
+                "icon": "home-2"
+            }
         },
         "characters": {
             "meta":{
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
-                "table": ["name", "game system", "game type"]
+                "table": ["name", "game system", "game type"],
+                "icon": "home-2"
             },
             "children":{
                 "Aalis Wintercrest": {
@@ -28,37 +32,31 @@
                                 "theme": "dracula"
                             }
                         },
-                        "Chapter_1": {
-                            "link":"/pages/characters/Aalis_Wintercrest_chapter_0.html",
-                            "meta":{
-                                "theme": "aqua"
-                            }
-                        },
-                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"},
-                        "md": {"link":"/pages/characters/test.md"}
-                    }
-                },
-                "Aalis Wintercrest 2Aalis Wintercrest 2": {
-                    "meta":{
-                        "name": "Aalis Wintercrest",
-                        "game system": "Fabula Ultima",
-                        "game type": "Fantasy",
-                        "theme": "emerald"
-                    },
-                    "children": {
-                        "Background": {
-                            "link": "/pages/characters/Aalis_Wintercrest_BG.html",
+                        "Sulle Tracce dell'ombra": {
+                            "link": "/pages/characters/Aalis_Wintercrest_capitolo_2.md",
                             "meta":{
                                 "theme": "dracula"
                             }
                         },
-                        "Chapter 1": {
-                            "link":"/pages/characters/Aalis_Wintercrest_chapter_0.html",
+                        "Il gatto di mana": {
+                            "link": "/pages/characters/Aalis_Wintercrest_capitolo_2_1.md",
                             "meta":{
-                                "theme": "aqua"
+                                "theme": "dracula"
+                            }
+                        }
+                        ,
+                        "Un tuffo nel buio": {
+                            "link": "/pages/characters/Aalis_Wintercrest_capitolo_3.md",
+                            "meta":{
+                                "theme": "dracula"
                             }
                         },
-                        "Chapter 2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
+                        "Sussurri nel vento": {
+                            "link": "/pages/characters/Aalis_Wintercrest_capitolo_4.md",
+                            "meta":{
+                                "theme": "dracula"
+                            }
+                        }
                     }
                 }
             }
@@ -75,19 +73,29 @@
             }
         },
         "blog": {
+            "meta":{
+                "theme": "aqua",
+                "label": "/pages/home/home.html",
+                "table": ["title", "date"]
+            },
             "children": {
-                "Blog1": {
+                "Why Play Tabletop Roleplaying Games?": {
                     "link": "/pages/blog/home_blog.html",
                     "meta":{
                         "theme": "dracula",
-                        "titlepage": "Tanil Blog 1"
+                        "titlepage": "Tanil Blog 1",
+                        "title": "Why Play Tabletop Roleplaying Games?",
+                        "date": "06/05/2024"
                     }
                 },
-                "GM_2": {"link": "/pages/characters/GM_2.html"},
-                "GM_3": {"link": "/pages/characters/GM_3.html"}
-            },
-            "meta":{
-                "theme": "aqua"
+                "The importance of rules": {
+                    "link": "/pages/blog/The_importance_of_rules.md",
+                    "meta":{
+                        "title": "The importance of rules",
+                        "theme": "dracula",
+                        "date": "06/05/2024"
+                    }
+                }
             }
         }
     }

@@ -9,17 +9,24 @@
         rel="stylesheet"
         type="text/css"
     />
+    <link 
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css"
+        rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp,container-queries"></script>
-    <title>Hello World</title>
+    <title>Tanil's Quest Logs: Character Stories and Roleplaying Reflections</title>
+    <meta property="og:title" content="Tanil's Quest Logs" />
+	<meta property="og:description" content="in this blog you will find my characters, with their backgrounds, and their sessions told from their point of view." />
+	<meta property="og:type" content="website" />
 </head>
 <body>
-    <div class="drawer">
+    <div class="drawer ">
         <!-- Drawler's toggle -->
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <!-- Drawler's content -->
         <div class="drawer-content">
             <!-- NAVBAR -->
-            <div class="navbar bg-base-100 capitalize">
+            <div class="navbar bg-base-100 capitalize sticky top-0 z-30">
                 <!-- drawer's bottom -->
                 <div class="flex-none">
                     <label for="my-drawer" class="btn btn-primary drawer-button">
@@ -38,29 +45,12 @@
                 </div>
                 <!-- navbar's content -->
                 <div class="flex-1">
-                    <a class="btn btn-ghost text-xl" href="#!">
-                        <svg 
-                            class="inline-block w-6 h-6"
-                            xmlns="http://www.w3.org/2000/svg" 
-                            fill="none" 
-                            viewBox="0 0 24 24" 
-                            strokeWidth={1.5} 
-                            stroke="currentColor">
-                            <path strokeLinecap="round" 
-                                strokeLinejoin="round" 
-                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                            />
-                        </svg>
-                        <span class="hidden sm:inline">Home</span>
-                    </a>
-                    <div class="hidden sm:inline-block">
-                        <a class="btn btn-ghost text-xl" href="#!characters">Characters</a>
-                        <a class="btn btn-ghost text-xl" href="#!GM">GM</a>
-                        <a class="btn btn-ghost text-xl" href="#!blog">Blog</a>
-                    </div>
+                    <div id="nav_links"></div>
                 </div>
-                <!-- theme dropdown -->
+                <!-- right nav bar -->
                 <div class="flex-none">
+                    
+                    <!-- theme -->
                     <div class="dropdown dropdown-end">
                         <div tabindex="0" role="button" class="btn m-1">
                             Theme
@@ -100,15 +90,21 @@
             </div>
         </div>
         <!-- Drawler -->
-        <div class="drawer-side capitalize">
+        <div class="drawer-side capitalize z-40">
             <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
             <ul class="menu p-4 w-80 min-h-full bg-base-200  text-base-content" id="drawer-list">
             </ul>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-anchor@8.6.7/dist/markdownItAnchor.umd.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/markdown-it-toc-done-right@4.2.0/dist/markdownItTocDoneRight.umd.min.js"> -->
+    </script>
     <script>
+        "use strict";
+        // use strict va messo perché sì (adattarsi a linguaggio moderno), cambia alcune regole del compilatore ad esempio se dimentico di definire una variabile non la crea automaticamente come farebbe js moderno ma da errore.
+
         // theme manager
         const newTheme = localStorage.getItem( '_pageTheme' )
         if ( newTheme ) document.querySelector( `input[name="theme-dropdown"][value="${newTheme}"]` ).checked = true
@@ -117,6 +113,13 @@
                 localStorage.setItem( '_pageTheme', el.value )
             })
         })
+
+        // call
+        function scrollToID (id) {
+            document.getElementById( id )?.scrollIntoView()
+            scrollBy(0, -100)
+        } 
+        
         // refresh
         let _strRoute, _idScrollTo, _route
         let DB_json = {}
@@ -124,10 +127,11 @@
             curr: {},
             parents: {},
         }
-        async function _refresh() {
+        async function _refresh () {
+            //  get route
             [_strRoute, _idScrollTo] = decodeURIComponent(window.location.hash).replace( /^#!\/?/, '' ).split( '#' )
             _route = _strRoute.split( '/' )
-            document.getElementById( _idScrollTo )?.scrollIntoView()
+
             if (!_route[0]) {
                 _route[0] = "home"
             }
@@ -138,10 +142,53 @@
                 _page.curr = _page?.curr?.children[el]
             })
             const parent = _page.parents[_page.parents.length - 1]
+            // set article page
+            const md = markdownit({
+                html: true,
+                breaks: true,
+                linkify: true,
+                typographer: true,
+            })
+            md.use(markdownItAnchor, {
+                callback: (token, {title, slug}) => {
+                    if (slug === _idScrollTo) {
+                        setTimeout(() => {
+                            scrollToID( _idScrollTo )
+                        }, 200)
+                    }
+                },
+                permalink: markdownItAnchor.permalink.headerLink({
+                    safariReaderFix: true,
+                    class: "no-underline",
+                }),
+            })
+            //.use(window.markdownItTocDoneRight);
 
-            document.getElementById('main' ).innerHTML = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
+            const article_page = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
+            let htmlContent = article_page;
+            
+            if (_page?.curr?.link?.endsWith('.md')) {
+                htmlContent = md.render(article_page);
+            }
+            document.getElementById('main').innerHTML = htmlContent
             //  Drawler list
-            const navlist = [ ]
+            const navlist = [ `
+                    <!-- search -->
+                    <label class="input input-bordered flex items-center gap-2">
+                        <input type="text" class="grow" placeholder="Search" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
+                    </label>
+                    ` ]
+            
+            const headers = Array.from( document.querySelector('article').querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]') )
+
+            if (headers.length) {
+                navlist.push( '<div class="divider divider-accent">Page index</div>' )
+                headers.forEach( el => {
+                    navlist.push(`<li><a href="#!${_strRoute}#${el.id}">${el.innerText}</a></li>`)
+                })
+            }
+
             // next level
             if (_page?.curr?.children  ) {
                 navlist.push( '<div class="divider divider-accent"> next level </div>' )
@@ -166,12 +213,12 @@
             }
             // navigation level
             navlist.push( '<div class="divider divider-accent"> Navigation\'s links </div>' )
-            Object.keys(DB_json.children).forEach( el => {
-                navlist.push( `<li><a href="#!${el}">${el.replace("_", " ")}</a> </li>`)
+            Object.entries(DB_json.children).forEach( ([el, val]) => {
+                navlist.push( `<li><a href="#!${el}"><i class="ri-${val?.meta?.icon || 'arrow-right-s'}-line"></i>${el.replace("_", " ")}</a> </li>`)
             })
             document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
             // breadcrumbs
-            bread_path = ['<ul>']
+            const bread_path = ['<ul>']
             _route.forEach( (el, i) => {
                 bread_path.push( `<li><a href="#!${_route.slice(0,i+1).join('/')}"><div class="badge badge-neutral ">${el}</div></a></li>` )
             })
@@ -188,6 +235,8 @@
                 document.body.appendChild( newScript )
                 el.remove()
             })
+
+            scrollToID( _idScrollTo )
         }
         // click handler
         document.addEventListener( 'click', async (ev) => {
@@ -200,6 +249,16 @@
         // refresh
         ;(async () => {
             DB_json = await(await fetch( "sitemap.json" )).json()
+            const navlist = [ ]
+            Object.entries(DB_json.children).forEach( ([el, val]) => {
+                navlist.push( `<a class="btn btn-ghost text-xl ${val?.meta?.icon ? '' : 'hidden sm:inline-flex'} " href="#!${el}"> <i class="ri-${val?.meta?.icon || 'arrow-right-s'}-line"></i><span class="hidden sm:inline">${el.replace("_", " ")}</span></a>`)
+            })
+            document.getElementById( 'nav_links' ).innerHTML = navlist.join( ' ' )
+
+            
+           // <a class="btn btn-ghost text-xl" href="#!characters">Characters</a>
+
+
             await _refresh()
         })();
     </script>
