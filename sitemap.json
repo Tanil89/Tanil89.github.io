@@ -15,7 +15,7 @@
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
                 "table": ["name", "game system", "game type"],
-                "icon": "home-2"
+                "icon": "user-heart"
             },
             "children":{
                 "Aalis Wintercrest": {
@@ -69,14 +69,16 @@
                 "GM_3": {"link": "/pages/characters/GM_3.html"}
             },
             "meta":{
-                "theme": "coffee"
+                "theme": "coffee",
+                "icon": "dice"
             }
         },
         "blog": {
             "meta":{
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
-                "table": ["title", "date"]
+                "table": ["title", "date"],
+                "icon": "article"
             },
             "children": {
                 "Why Play Tabletop Roleplaying Games?": {
