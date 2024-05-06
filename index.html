@@ -13,11 +13,15 @@
     <title>Hello World</title>
 </head>
 <body>
-    <div class="navbar bg-base-100">
-        <div class="flex-none">
-            <div class="drawer z-50 capitalize">
-                <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content">
+    <div class="drawer">
+        <!-- Drawler's toggle -->
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <!-- Drawler's content -->
+        <div class="drawer-content">
+            <!-- NAVBAR -->
+            <div class="navbar bg-base-100 capitalize">
+                <!-- drawer's bottom -->
+                <div class="flex-none">
                     <label for="my-drawer" class="btn btn-primary drawer-button">
                         <svg 
                             xmlns="http://www.w3.org/2000/svg" fill="none" 
@@ -31,74 +35,79 @@
                             </path>
                         </svg>
                     </label>
-                </div> 
-                <div class="drawer-side">
-                    <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-                    <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content" id="drawer-list">
-
-                    </ul>
                 </div>
-            </div>
-        </div>
-        <div class="flex-1">
-            <a class="btn btn-ghost text-xl" href="#!">
-                <svg 
-                    class="inline-block w-6 h-6"
-                    xmlns="http://www.w3.org/2000/svg" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    strokeWidth={1.5} 
-                    stroke="currentColor">
-                    <path strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                    />
-                </svg>
-                <span class="hidden sm:inline">Home</span>
-            </a>
-            <div class="hidden sm:inline-block">
-                <a class="btn btn-ghost text-xl" href="#!characters">Characters</a>
-                <a class="btn btn-ghost text-xl" href="#!GM">GM</a>
-                <a class="btn btn-ghost text-xl" href="#!blog">Blog</a>
-            </div>
-        </div>
-        <div class="flex-none">
-            <div>
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="btn m-1">
-                        Theme
-                        <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+                <!-- navbar's content -->
+                <div class="flex-1">
+                    <a class="btn btn-ghost text-xl" href="#!">
+                        <svg 
+                            class="inline-block w-6 h-6"
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            strokeWidth={1.5} 
+                            stroke="currentColor">
+                            <path strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                            />
+                        </svg>
+                        <span class="hidden sm:inline">Home</span>
+                    </a>
+                    <div class="hidden sm:inline-block">
+                        <a class="btn btn-ghost text-xl" href="#!characters">Characters</a>
+                        <a class="btn btn-ghost text-xl" href="#!GM">GM</a>
+                        <a class="btn btn-ghost text-xl" href="#!blog">Blog</a>
                     </div>
-                    <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="CHARACTER" value="default"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Emerald" value="emerald"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Halloween" value="halloween"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Forest" value="forest"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dracula" value="dracula"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Autumn" value="autumn"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Business" value="business"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Night" value="night"/></li>
-                        <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Coffee" value="coffee"/></li>
-                    </ul>
+                </div>
+                <!-- theme dropdown -->
+                <div class="flex-none">
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn m-1">
+                            Theme
+                            <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+                        </div>
+                        <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="CHARACTER" value="default"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Emerald" value="emerald"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Halloween" value="halloween"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Forest" value="forest"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dracula" value="dracula"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Autumn" value="autumn"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Business" value="business"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Night" value="night"/></li>
+                            <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Coffee" value="coffee"/></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <!-- MAIN -->
+            <div class="flex flex-col items-center justify-center h-full">
+                <!-- breadcrumbs -->
+                <div class="text-sm breadcrumbs capitalize w-full max-w-prose" id="breadcrumbs_over_article"></div>
+                <!-- article -->
+                <article class="prose prose-xl m-5" id="main"></article>
+                <!-- footer -->
+                <footer class="footer footer-center p-10 bg-neutral text-neutral-content w-full">
+                    <aside class="items-center grid-flow-col ">
+                        <p>CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)<br>
+                            Made with ♥ by Tanil </p>
+                        <img src="\assets\Tanil.png" class="h-20">
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        <!-- Drawler -->
+        <div class="drawer-side capitalize">
+            <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-80 min-h-full bg-base-200  text-base-content" id="drawer-list">
+            </ul>
         </div>
     </div>
-    <div class="flex flex-col items-center justify-center h-full">
-        <div class="text-sm breadcrumbs capitalize w-full max-w-prose" id="breadcrumbs_over_article"></div>
-        <article class="prose prose-xl m-5" id="main">
-        </article>
-    </div>
-    <footer class="footer footer-center p-10 bg-neutral text-neutral-content w-full">
-        <aside class="items-center grid-flow-col">
-            <p>CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)<br>
-                Made with ♥ by Tanil </p>
-            <img src="\assets\Tanil.png" class="h-20">
-        </aside>
-    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
     <script>
         // theme manager
         const newTheme = localStorage.getItem( '_pageTheme' )
@@ -133,39 +142,41 @@
             document.getElementById('main' ).innerHTML = await(await fetch( _page?.curr?.link || (_page?.curr?.children ? "autoindex.html" : "404.html") )).text()
             //  Drawler list
             const navlist = [ ]
-            Object.keys(DB_json.children).forEach( el => {
-                navlist.push( `<li><a href="#!${el}">${el.replace("_", " ")}</a> </li>`)
-            })
-            
+            // next level
             if (_page?.curr?.children  ) {
-                navlist.push( '<div class="divider divider-accent"></div>' )
+                navlist.push( '<div class="divider divider-accent"> next level </div>' )
                 Object.keys(_page?.curr?.children ).forEach( el => {
                     navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
                 })
             }
+            // current level
             if (parent?.children && parent !== DB_json ) {
-                navlist.push( '<div class="divider divider-accent"></div>' )
+                navlist.push( '<div class="divider divider-accent"> current level </div>' )
                 Object.keys(parent?.children).forEach( el => {
                     navlist.push( `<li><a href="#!${_route.slice(0, -1).join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
                 })
             }
+            // previous level
             const grandparent = _page.parents[_page.parents.length-2]
             if (!_page?.curr?.children && grandparent && grandparent !== DB_json ) {
-                navlist.push( '<div class="divider divider-accent"></div>' )
+                navlist.push( '<div class="divider divider-accent"> previous level </div>' )
                 Object.keys(grandparent?.children).forEach( el => {
                     navlist.push( `<li><a href="#!${_route.slice(0, -2).join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
                 })
             }
+            // navigation level
+            navlist.push( '<div class="divider divider-accent"> Navigation\'s links </div>' )
+            Object.keys(DB_json.children).forEach( el => {
+                navlist.push( `<li><a href="#!${el}">${el.replace("_", " ")}</a> </li>`)
+            })
             document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
-
-
+            // breadcrumbs
             bread_path = ['<ul>']
             _route.forEach( (el, i) => {
                 bread_path.push( `<li><a href="#!${_route.slice(0,i+1).join('/')}"><div class="badge badge-neutral ">${el}</div></a></li>` )
             })
             bread_path.push('</ul>')
             document.getElementById( 'breadcrumbs_over_article' ).innerHTML = bread_path.join( '\n' )
-            console.log(navlist)
             // Metadata handler
             document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
             document.title = _page.curr?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
@@ -178,6 +189,7 @@
                 el.remove()
             })
         }
+        // click handler
         document.addEventListener( 'click', async (ev) => {
             const el = ev.target.closest( 'a[href^="#!"]' )
             if ( !el ) return;
@@ -185,10 +197,11 @@
             await _refresh()
             ev.preventDefault()
         })
+        // refresh
         ;(async () => {
             DB_json = await(await fetch( "sitemap.json" )).json()
             await _refresh()
         })();
-        </script>
+    </script>
 </body>
 </html>

@@ -34,7 +34,8 @@
                                 "theme": "aqua"
                             }
                         },
-                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"}
+                        "Chapter_2": {"link":"/pages/characters/Aalis_Wintercrest_chapter_1.html"},
+                        "md": {"link":"/pages/characters/test.md"}
                     }
                 },
                 "Aalis Wintercrest 2Aalis Wintercrest 2": {
