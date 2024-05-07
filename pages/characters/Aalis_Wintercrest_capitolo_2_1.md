@@ -1,3 +1,11 @@
+---
+title: "Capitolo 3"
+author: "Aalis"
+date: "2020-04-22"
+description: "Capitolo 3"
+prev: "/book/capitolo-2"
+next: "/book/capitolo-4"
+---
 # Il gatto di mana
 _Questo capitolo sarà scritto come se lo scrivesse Aalis in prima persona per provare un altro stile, è un intermezzo tra il capitolo 2 e 3 non giocato al tavolo_    
 Esausta dall'avventura sono tornata a casa per recuperare le forze, tempi bui si prospettano all'orizzonte. E' stato bello riabbracciare la mia famiglia e le mie sorelle Renata e Lucilla. Avevo bisogno di una pausa.

@@ -1,13 +1,27 @@
 {   "meta":{
         "comment":"here there is all general meta of this website", 
         "theme": "coffee",
-        "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections"
+        "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections",
+        "theme_list": [
+            {"name": "Aqua", "value": "aqua"},
+            {"name": "Emerald", "value":"emerald"},
+            {"name": "Retro", "value":"retro"},
+            {"name": "Valentine", "value":"valentine"},
+            {"name": "Halloween", "value":"halloween"},
+            {"name": "Forest", "value":"forest"},
+            {"name": "Aqua", "value":"aqua"},
+            {"name": "Dracula", "value":"dracula"},
+            {"name": "Autumn", "value":"autumn"},
+            {"name": "Business", "value":"business"},
+            {"name": "Night", "value":"night"},
+            {"name": "Coffee", "value":"coffee"}
+        ]
     },
     "children": {
         "home": {
             "link":"/pages/home/home.html",
             "meta":{
-                "icon": "home-2"
+                "icon": "ri-home-2-line"
             }
         },
         "characters": {
@@ -15,10 +29,10 @@
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
                 "table": ["name", "game system", "game type"],
-                "icon": "user-heart"
+                "icon": "ra ra-player-pyromaniac"
             },
             "children":{
-                "Aalis Wintercrest": {
+                "AalisWintercrest": {
                     "meta":{
                         "name": "Aalis Wintercrest",
                         "game system": "Fabula Ultima",
@@ -32,9 +46,10 @@
                                 "theme": "dracula"
                             }
                         },
-                        "Sulle Tracce dell'ombra": {
+                        "SulleTracceDellOmbra": {
                             "link": "/pages/characters/Aalis_Wintercrest_capitolo_2.md",
                             "meta":{
+                                "title": "Sulle tracce dell'ombra",
                                 "theme": "dracula"
                             }
                         },
@@ -70,15 +85,17 @@
             },
             "meta":{
                 "theme": "coffee",
-                "icon": "dice"
+                "icon": "ra ra-monster-skull"
             }
         },
+
         "blog": {
+            "link": "/pages/blog/home_blog.html",
             "meta":{
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
                 "table": ["title", "date"],
-                "icon": "article"
+                "icon": "ra ra-scroll-unfurled"
             },
             "children": {
                 "Why Play Tabletop Roleplaying Games?": {
