@@ -33,6 +33,7 @@
             },
             "children":{
                 "AalisWintercrest": {
+                    "link": "/pages/characters/Aalis_Wintercrest_home.md",
                     "meta":{
                         "name": "Aalis Wintercrest",
                         "game system": "Fabula Ultima",

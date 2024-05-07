@@ -144,19 +144,13 @@
         } 
         
         // link handler
-        document.addEventListener( 'click', async (ev) => {
-            const el = ev.target.closest( 'a[href^="#!"]' )
-            if ( !el ) return;
-            window.location.hash = el.getAttribute( 'href' )
-
+        window.addEventListener('hashchange', async () => {
             const [_strRouteNew, _idScrollToNew] = decodeURIComponent(window.location.hash).replace( /^#!\/?/, '' ).split( '#' )
             if  (_strRouteNew === _strRoute) {
                 scrollToID( _idScrollToNew )
             } else {
                 await _refresh()
             }
-            
-            ev.preventDefault()
         })
 
         // refresh
@@ -304,8 +298,8 @@
 
             // Metadata handler
             document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
-            document.title = _page.curr?.meta?.titlepage || parent?.meta?.titlepage || DB_json?.meta?.titlepage
-            
+            const pageTitle = getPageName(_page.curr) || getPageName(parent)
+            document.title = pageTitle ? pageTitle + " | " + DB_json?.meta?.titlepage : DB_json?.meta?.titlepage 
             // Inject article scripts
             Array.from( document.querySelectorAll( 'textarea[data-script]' ) ).forEach( el => {
                 const newScript = document.createElement( 'script' )
