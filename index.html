@@ -242,14 +242,14 @@
                 const index = keys.indexOf( _route[_route.length-1] )
 
                 if ( index > 0 ) {
-                    btnPrev.innerHTML = `<i class="ri-arrow-left-s-line"></i><span class="hidden sm:inline">${keys[index-1]}</span>`
+                    btnPrev.innerHTML = `<i class="ri-arrow-left-s-line"></i><span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index-1]}</span>`
                     btnPrev.href = `#!${_route.slice( 0, -1 ).join( '/' )}/${keys[index-1]}`
                     btnPrev.classList.remove( 'hidden' )
                 } else {
                     btnPrev.classList.add( 'hidden' )
                 }
                 if ( index < keys.length - 1 ) {
-                    btnNext.innerHTML = `<span class="hidden sm:inline">${keys[index+1]}</span><i class="ri-arrow-right-s-line"></i>`
+                    btnNext.innerHTML = `<span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index+1]}</span><i class="ri-arrow-right-s-line"></i>`
                     btnNext.href = `#!${_route.slice( 0, -1 ).join( '/' )}/${keys[index+1]}`
                     btnNext.classList.remove( 'hidden' )
                 } else {
@@ -272,15 +272,15 @@
             const autoIndex = []
             if ( _page?.curr?.meta?.table ){
                 autoIndex.push('<div class="overflow-x-auto ">\n<table class="table hidden md:table">\n<thead class="capitalize">\n<tr>\n')
-
+                autoIndex.push('<th>name</th>')
                 _page?.curr?.meta?.table.forEach( el => {
                     autoIndex.push( `<th>${el}</th>` )
                 })
                 autoIndex.push( `<th>link</th>` )
                 autoIndex.push('\n</tr>\n</thead>\n<tbody>\n')
-
                 Object.keys(_page?.curr?.children).forEach( row => {
                     autoIndex.push( ` <tr>\n` )
+                    autoIndex.push( `<td>${getPageName( _page?.curr?.children[row] || row)}</td>` )
                     _page?.curr?.meta?.table.forEach( meta => {
                         if ( _page?.curr?.children[row].meta[meta] ) {
                             autoIndex.push( `<td>${_page?.curr?.children[row].meta[meta]}</td>` )
@@ -294,8 +294,8 @@
                 autoIndex.push('\n</tbody>\n</table>\n</div>')
             }
             autoIndex.push(`<ul class="block ${_page?.curr?.meta?.table ? 'md:hidden' : ''}">`)
-            Object.keys(_page?.curr?.children || {} ).forEach( el => {
-                autoIndex.push( `<li><a href="#!${_route.join('/')}/${el}">${el.replace("_", " ")}</a></li>` )
+            Object.entries(_page?.curr?.children || {} ).forEach( ([el, obj]) => {
+                autoIndex.push( `<li><a href="#!${_route.join('/')}/${el}">${getPageName(obj) || el}</a></li>` )
             })
             autoIndex.push("</ul>")
             Array.from( document.querySelectorAll( '[data-pages]' ) ).forEach( el => {

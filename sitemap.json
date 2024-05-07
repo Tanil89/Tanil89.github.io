@@ -28,7 +28,7 @@
             "meta":{
                 "theme": "aqua",
                 "label": "/pages/home/home.html",
-                "table": ["name", "game system", "game type"],
+                "table": ["game system", "game type"],
                 "icon": "ra ra-player-pyromaniac"
             },
             "children":{
