@@ -1,5 +1,4 @@
 {   "meta":{
-        "comment":"here there is all general meta of this website", 
         "theme": "coffee",
         "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections",
         "theme_list": [
@@ -19,7 +18,7 @@
     },
     "children": {
         "home": {
-            "link":"/pages/home/home.html",
+            "link":"/pages/home/home.md",
             "meta":{
                 "icon": "ri-home-2-line"
             }
@@ -99,13 +98,13 @@
                 "icon": "ra ra-scroll-unfurled"
             },
             "children": {
-                "Why Play Tabletop Roleplaying Games?": {
+                "WhyPlayTabletopRoleplayingGames?": {
                     "link": "/pages/blog/home_blog.html",
                     "meta":{
                         "theme": "dracula",
                         "titlepage": "Tanil Blog 1",
                         "title": "Why Play Tabletop Roleplaying Games?",
-                        "date": "06/05/2024"
+                        "date": "2024-05-06"
                     }
                 },
                 "The importance of rules": {
@@ -113,7 +112,7 @@
                     "meta":{
                         "title": "The importance of rules",
                         "theme": "dracula",
-                        "date": "06/05/2024"
+                        "date": "2024-05-06T09:00:00+01"
                     }
                 }
             }

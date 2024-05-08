@@ -1,4 +1,4 @@
-#Sulle Tracce dell'Ombra
+# Sulle Tracce dell'Ombra
 _Questo capitolo sarà scritto in terza persona al passato_  
 "Demoni, demoni, demoni... cosa ci facevano dei maledetti demoni alla festa degli eroi?!" Aalis non riusciva a darsi pace e quella domanda continuava a martellarle la testa giorno e notte e questo le creava uno senso di irrequietezza.  
 Al ritorno dalla festa aveva mandato un messaggero con il rapporto alla sede dell'ordine d'avorio, in modo fossero pronti alla minaccia crescente, si era quindi diretta alla biblioteca vivente per informare il ministero dell'antica biblioteca in modo potessero iniziare gli studi per trovare armi efficaci e per studiare lei stessa i demoni.  
