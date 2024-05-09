@@ -74,6 +74,6 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
 
     JSON_path.meta = JSON.parse( await fs.readFile( directoryPath + "//meta.json", 'utf8' ));
     await JSON_maker(directoryPath);
-    fs.writeFile( "dist\\index.json", JSON.stringify(JSON_path, null, "\t"), 'utf8');
-    fs.writeFile( "dist\\sitemap.xml", sitemap.join("\n"), 'utf8');
+    fs.writeFile( "src\\index.json", JSON.stringify(JSON_path, null, "\t"), 'utf8');
+    fs.writeFile( "src\\sitemap.xml", sitemap.join("\n"), 'utf8');
 })();
