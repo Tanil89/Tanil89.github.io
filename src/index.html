@@ -2,7 +2,7 @@
 <html lang="en" data-theme="coffee">
 <head>
     <title>Tanil's Quest Logs: Character Stories and Roleplaying Reflections</title>
-    <link rel="icon" type="image/png" href="\assets\Tanil.png"/>
+    <link rel="icon" type="image/png" href=".\assets\Tanil.png"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -75,7 +75,7 @@
                     <aside class="items-center grid-flow-col ">
                         <p>CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)<br>
                             Made with ♥ by Tanil </p>
-                        <img src="\assets\Tanil.png" class="h-20">
+                        <img src=".\assets\Tanil.png" class="h-20">
                     </aside>
                 </footer>
             </div>
@@ -86,17 +86,15 @@
             <ul class="menu p-4 w-80 min-h-full bg-base-200  text-base-content">
             <!-- search -->
             <label class="input input-bordered flex items-center gap-2">
-                <input type="text" class="grow" placeholder="Search" />
+                <input id="search_input" type="text" class="grow" placeholder="Search" />
                 <i class="ri-search-line" aria-hidden="true"></i>
             </label>
-            <div id="drawer-list" >
-                
-            </div>
+            <ul id="search-results" class="hidden" ></ul>
+            <div id="drawer-list" ></div>
             </ul>
         </div>
     </div>
     
-
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it-anchor@8.6.7/dist/markdownItAnchor.umd.min.js"></script>
     <!-- YAML -->
@@ -108,6 +106,8 @@
         "use strict";
         // use strict va messo perché sì (adattarsi a linguaggio moderno), cambia alcune regole del compilatore ad esempio se dimentico di definire una variabile non la crea automaticamente come farebbe js moderno ma da errore.
 
+        let _dictSearch = {}
+        let DB_json = {}
         const md = markdownit({
             html: true,
             breaks: true,
@@ -156,7 +156,6 @@
 
         // refresh
         let _strRoute, _idScrollTo, _route
-        let DB_json = {}
         const _page = {
             curr: {},
             parents: {},
@@ -194,7 +193,7 @@
                 headers.forEach( el => {
                     navlist.push(`<li><a href="#!${_strRoute}#${el.id}">${el.innerText}</a></li>`)
                 })
-            }
+            } 
 
             function getPageName (page) {
                 return page?.meta?.title || page?.meta?.name
@@ -315,9 +314,28 @@
             scrollToID( _idScrollTo )
         }
         
+        // search
+        document.getElementById('search_input' ).addEventListener( 'input', (ev) => {
+            if (ev.target.value) {
+                document.getElementById('search-results' ).classList.remove( 'hidden' )
+                document.getElementById('drawer-list' ).classList.add( 'hidden' )
+                
+                const res = _dictSearch.filter( el => el.str.toLowerCase().includes( ev.target.value.toLowerCase() ) ).map( el => {
+                    return `<li><a href="#!${el.url}">${el.name}</a></li>`
+                })
+                document.getElementById('search-results' ).innerHTML = res.join( '\n' )
+            } else {
+                document.getElementById('search-results' ).classList.add( 'hidden' )
+                document.getElementById('drawer-list' ).classList.remove( 'hidden' )
+            }
+
+
+        })
+
         // main
         ;(async () => {
             DB_json = await(await fetch( "index.json" )).json()
+            _dictSearch = await(await fetch( "search.json" )).json()
             const navlist = [ ]
             Object.entries(DB_json.children).forEach( ([el, val]) => {
                 navlist.push( `<a class="btn btn-ghost text-xl ${val?.meta?.icon ? '' : 'hidden sm:inline-flex'} " href="#!${el}"> <i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i><span class="hidden sm:inline">${el.replace("_", " ")}</span></a>`)

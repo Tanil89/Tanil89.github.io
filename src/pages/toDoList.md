@@ -1,8 +1,13 @@
+---
+title: todo
+index: 5
+icon: ra ra-player-dodge
+---
 ### next tasks:
-* app separata: generatore statico di route da una cartella di file markdown, con meta da header YAML
+* ~~ordinare con l'index la lista dei file~~
+* ~~app separata: generatore statico di route da una cartella di file markdown, con meta da header YAML~~
 * _**ricerca e navigazione rapida**_
-* sezione admin per modificare il JSON (e magari prendere i link pronti di tutti i file HTML ed asset caricati)
-* **generatore di sitemap standard e feed RSS**
+* ~~**generatore di sitemap standard e feed RSS**~~
 *  prenire Flash Of Unstyled Content
 ### Completed:
 * ~~tag opengraph~~

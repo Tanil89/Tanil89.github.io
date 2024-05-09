@@ -54,21 +54,118 @@
 		]
 	},
 	"children": {
+		"home": {
+			"link": "pages/home.md",
+			"meta": {
+				"title": "Welcome",
+				"icon": "ri-home-2-line",
+				"index": 1
+			}
+		},
+		"characters": {
+			"link": "pages/characters.md",
+			"meta": {
+				"title": "characters",
+				"index": 2,
+				"theme": "aqua",
+				"icon": "ra ra-player-pyromaniac",
+				"table": [
+					"game system",
+					"game type"
+				]
+			},
+			"children": {
+				"Aalis_Wintercrest": {
+					"link": "pages/characters/Aalis_Wintercrest.md",
+					"meta": {
+						"name": "Aalis Wintercrest",
+						"game system": "Fabula Ultima",
+						"game type": "Campaign"
+					},
+					"children": {
+						"Aalis_Wintercrest_BG": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.html",
+							"meta": {}
+						},
+						"Aalis_Wintercrest_capitolo_2": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2.md",
+							"meta": {}
+						},
+						"Aalis_Wintercrest_capitolo_3": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_3.md",
+							"meta": {}
+						},
+						"Aalis_Wintercrest_capitolo_4": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_4.md",
+							"meta": {}
+						},
+						"Aalis_Wintercrest_capitolo_2_1": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2_1.md",
+							"meta": {
+								"title": "Capitolo 3",
+								"author": "Aalis",
+								"date": "2020-04-21T23:00:00.000Z",
+								"description": "Capitolo 3"
+							}
+						}
+					}
+				},
+				"Nemesia_Firechild": {
+					"link": "pages/characters/Nemesia_Firechild.md",
+					"meta": {
+						"name": "Nemesia Firechild",
+						"game system": "Goblin Slayer TTRPG",
+						"game type": "One-shot"
+					},
+					"children": {
+						"Nemesia_Firechild": {
+							"link": "pages/characters/Nemesia_Firechild/Nemesia_Firechild.md",
+							"meta": {
+								"title": "Home",
+								"game system": "NEMESIA",
+								"game type": "2D"
+							}
+						}
+					}
+				}
+			}
+		},
+		"GM": {
+			"meta": {
+				"title": "blog",
+				"icon": "ra ra-monster-skull",
+				"index": 3
+			},
+			"children": {
+				"GM": {
+					"link": "pages/GM/GM.md",
+					"meta": {
+						"title": "GM",
+						"date": "2017-01-01T11:00:00.000Z",
+						"description": "GM pages"
+					}
+				}
+			}
+		},
 		"blog": {
+			"meta": {
+				"title": "blog",
+				"icon": "ra ra-scroll-unfurled",
+				"index": 4
+			},
 			"children": {
 				"home_blog": {
-					"link": "pages\\blog\\home_blog.md",
+					"link": "pages/blog/home_blog.md",
 					"meta": {
-						"Title": "Why Play Tabletop Roleplaying Games?",
-						"author": "Charlotte",
-						"date": "2021-07-20T16:00:00.000Z"
+						"title": "Why Play Tabletop Roleplaying Games?",
+						"author": "ChatGPT"
 					}
 				},
 				"The_importance_of_rules": {
-					"link": "pages\\blog\\The_importance_of_rules.md",
+					"link": "pages/blog/The_importance_of_rules.md",
 					"meta": {
-						"title": "Titolo del documento",
-						"author": "Autore del documento",
+						"title": "The importance of rules",
+						"author": "Josh",
 						"date": "2022-06-03T10:20:00.000Z",
 						"tags": [
 							"Tag1",
@@ -79,89 +176,13 @@
 				}
 			}
 		},
-		"characters": {
-			"children": {
-				"Aalis_Wintercrest": {
-					"children": {
-						"Aalis_Wintercrest_BG": {
-							"link": "pages\\characters\\Aalis_Wintercrest\\Aalis_Wintercrest_BG.html",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_2": {
-							"link": "pages\\characters\\Aalis_Wintercrest\\Aalis_Wintercrest_capitolo_2.md",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_2_1": {
-							"link": "pages\\characters\\Aalis_Wintercrest\\Aalis_Wintercrest_capitolo_2_1.md",
-							"meta": {
-								"title": "Capitolo 3",
-								"author": "Aalis",
-								"date": "2020-04-22T00:00:00+01",
-								"description": "Capitolo 3"
-							}
-						},
-						"Aalis_Wintercrest_capitolo_3": {
-							"link": "pages\\characters\\Aalis_Wintercrest\\Aalis_Wintercrest_capitolo_3.md",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_4": {
-							"link": "pages\\characters\\Aalis_Wintercrest\\Aalis_Wintercrest_capitolo_4.md",
-							"meta": {}
-						}
-					},
-					"link": "pages\\characters\\Aalis_Wintercrest.md",
-					"meta": {}
-				},
-				"Nemesia_Firechild": {
-					"children": {
-						"Nemesia_Firechild": {
-							"link": "pages\\characters\\Nemesia_Firechild\\Nemesia_Firechild.md",
-							"meta": {
-								"title": "Home",
-								"game system": "NEMESIA",
-								"game type": "2D"
-							}
-						}
-					},
-					"link": "pages\\characters\\Nemesia_Firechild.md",
-					"meta": {}
-				}
-			},
-			"link": "pages\\characters.md",
-			"meta": {
-				"title": "characters",
-				"theme": "aqua,",
-				"label": "/pages/home/home.html",
-				"icon": "ra ra-player-pyromaniac",
-				"table": [
-					"game system",
-					"game type"
-				]
-			}
-		},
-		"GM": {
-			"children": {
-				"GM": {
-					"link": "pages\\GM\\GM.md",
-					"meta": {
-						"title": "GM",
-						"date": "2017-01-01T12:00:00.000Z",
-						"description": "GM pages"
-					}
-				}
-			}
-		},
-		"home": {
-			"link": "pages\\home.md",
-			"meta": {
-				"title": "Welcome",
-				"layout": "post",
-				"author": "Joseph"
-			}
-		},
 		"toDoList": {
-			"link": "pages\\toDoList.md",
-			"meta": {}
+			"link": "pages/toDoList.md",
+			"meta": {
+				"title": "todo",
+				"index": 5,
+				"icon": "ra ra-player-dodge"
+			}
 		}
 	}
 }

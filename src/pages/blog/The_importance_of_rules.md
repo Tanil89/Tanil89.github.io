@@ -1,6 +1,6 @@
 ---
-title: Titolo del documento
-author: Autore del documento
+title: The importance of rules
+author: Josh
 date: 2022-06-03T11:20:00+01:00
 tags:
   - Tag1

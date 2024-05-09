@@ -1,7 +1,7 @@
 ---
 title:  "Welcome"
-layout: post
-author: "Joseph"
+icon: ri-home-2-line
+index: 1
 ---
 # Welcome
 Hello friend, welcome to my website! 

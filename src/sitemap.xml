@@ -1,86 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<urlset https://tanil89.github.io/#!blog/home_blog>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!home>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!blog/The_importance_of_rules>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest\Aalis_Wintercrest_BG>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!GM>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest\Aalis_Wintercrest_capitolo_2>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!blog>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest\Aalis_Wintercrest_capitolo_2_1>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!toDoList>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest\Aalis_Wintercrest_capitolo_3>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!blog/home_blog>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest\Aalis_Wintercrest_capitolo_4>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest/Aalis_Wintercrest_BG>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Nemesia_Firechild\Nemesia_Firechild>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters/Nemesia_Firechild>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_3>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!characters>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_4>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!GM/GM>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Nemesia_Firechild>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!home>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!characters/Nemesia_Firechild/Nemesia_Firechild>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
 
-<urlset https://tanil89.github.io/#!toDoList>
-    <url>
-        <loc> "https://tanil89.github.io/"
-    </url>
-</urlset>
+            <urlset https://tanil89.github.io/#!blog/The_importance_of_rules>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
+
+            <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2_1>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
+
+            <urlset https://tanil89.github.io/#!GM/GM>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
