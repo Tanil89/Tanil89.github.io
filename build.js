@@ -66,7 +66,9 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
     //    await fs.unlink(path.join( 'dist', file));
     //}
 
-    await fs.rm("dist", {recursive: true})
+    try { 
+        await fs.rm("dist", {recursive: true}) 
+    } catch (e) {}
     await fs.mkdir("dist")
     await fs.cp("src", "dist", {recursive: true})
 
