@@ -1,0 +1,19 @@
+{   
+    "theme": "coffee",
+    "titlepage": "Tanil's Quest Logs: Character Stories and Roleplaying Reflections",
+    "theme_list": [
+        {"name": "Aqua", "value": "aqua"},
+        {"name": "Emerald", "value":"emerald"},
+        {"name": "Retro", "value":"retro"},
+        {"name": "Valentine", "value":"valentine"},
+        {"name": "Halloween", "value":"halloween"},
+        {"name": "Forest", "value":"forest"},
+        {"name": "Aqua", "value":"aqua"},
+        {"name": "Dracula", "value":"dracula"},
+        {"name": "Autumn", "value":"autumn"},
+        {"name": "Business", "value":"business"},
+        {"name": "Night", "value":"night"},
+        {"name": "Coffee", "value":"coffee"}
+    ]
+
+}

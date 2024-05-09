@@ -1,3 +1,9 @@
+---
+Title: Why Play Tabletop Roleplaying Games?
+author: Charlotte
+date: 2021-07-20T16:00:00.000Z
+---
+
 <h2>Why Play Tabletop Roleplaying Games?</h2>
     <p>Tabletop roleplaying games (RPGs) offer a unique and immersive experience that transcends traditional forms of entertainment. Here are a few reasons why diving into the world of RPGs can be an enriching and rewarding experience:</p>
     <h3>1. Creativity and Imagination</h3>

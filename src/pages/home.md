@@ -1,3 +1,8 @@
+---
+title:  "Welcome"
+layout: post
+author: "Joseph"
+---
 # Welcome
 Hello friend, welcome to my website! 
 I've been roleplaying for more than 17 years, since I was 16 years old. I decided to share my roleplaying experiences with others while I'm learning a little html :)

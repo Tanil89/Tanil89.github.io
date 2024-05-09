@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "js-yaml": "^4.1.0"
+  },
+  "scripts": {
+    "watch": "nodemon --watch src/ -x \"node build.js\""
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
