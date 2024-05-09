@@ -62,9 +62,12 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
 }
 
 ;(async () => {
-    for (const file of await fs.readdir( 'dist' )) {
-        await fs.unlink(path.join( 'dist', file));
-    }
+    //for (const file of await fs.readdir( 'dist' )) {
+    //    await fs.unlink(path.join( 'dist', file));
+    //}
+
+    await fs.rm("dist", {recursive: true})
+    await fs.mkdir("dist")
     await fs.cp("src", "dist", {recursive: true})
 
     JSON_path.meta = JSON.parse( await fs.readFile( directoryPath + "//meta.json", 'utf8' ));

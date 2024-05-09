@@ -266,6 +266,7 @@
             // autoindex
             const autoIndex = []
             if ( _page?.curr?.meta?.table ){
+                // header
                 autoIndex.push('<div class="overflow-x-auto ">\n<table class="table hidden md:table">\n<thead class="capitalize">\n<tr>\n')
                 autoIndex.push('<th>name</th>')
                 _page?.curr?.meta?.table.forEach( el => {
@@ -273,9 +274,10 @@
                 })
                 autoIndex.push( `<th>link</th>` )
                 autoIndex.push('\n</tr>\n</thead>\n<tbody>\n')
+                // body
                 Object.keys(_page?.curr?.children).forEach( row => {
                     autoIndex.push( ` <tr>\n` )
-                    autoIndex.push( `<td>${getPageName( _page?.curr?.children[row] || row)}</td>` )
+                    autoIndex.push( `<td>${getPageName( _page?.curr?.children[row]) || row}</td>` )
                     _page?.curr?.meta?.table.forEach( meta => {
                         if ( _page?.curr?.children[row].meta[meta] ) {
                             autoIndex.push( `<td>${_page?.curr?.children[row].meta[meta]}</td>` )
