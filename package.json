@@ -4,6 +4,7 @@
     "js-yaml": "^4.1.0"
   },
   "scripts": {
+    "start": "node build.js",
     "watch": "nodemon -e  md,html --watch src/ -x \"node build.js\"",
     "deploy": "gh-pages -d dist"
   },
