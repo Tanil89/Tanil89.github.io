@@ -6,7 +6,8 @@ icon: ra ra-player-dodge
 ### next tasks:
 * ~~ordinare con l'index la lista dei file~~
 * ~~app separata: generatore statico di route da una cartella di file markdown, con meta da header YAML~~
-* _**ricerca e navigazione rapida**_
+* ~~**ricerca e navigazione rapida**~~
+* OPZ ricerca all'interno delle pagine
 * ~~**generatore di sitemap standard e feed RSS**~~
 *  prenire Flash Of Unstyled Content
 ### Completed:

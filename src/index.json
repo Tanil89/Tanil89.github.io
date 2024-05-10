@@ -84,8 +84,10 @@
 					},
 					"children": {
 						"Aalis_Wintercrest_BG": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.html",
-							"meta": {}
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.md",
+							"meta": {
+								"title": "Aalis' Background"
+							}
 						},
 						"Aalis_Wintercrest_capitolo_2": {
 							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2.md",
@@ -102,7 +104,7 @@
 						"Aalis_Wintercrest_capitolo_2_1": {
 							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2_1.md",
 							"meta": {
-								"title": "Capitolo 3",
+								"title": "Il gatto di mana",
 								"author": "Aalis",
 								"date": "2020-04-21T23:00:00.000Z",
 								"description": "Capitolo 3"
