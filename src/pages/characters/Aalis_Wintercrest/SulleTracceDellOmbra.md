@@ -1,3 +1,7 @@
+---
+title: Sulle Tracce dell'Ombra
+index: 2
+---
 # Sulle Tracce dell'Ombra
 _Questo capitolo sarà scritto in terza persona al passato_  
 "Demoni, demoni, demoni... cosa ci facevano dei maledetti demoni alla festa degli eroi?!" Aalis non riusciva a darsi pace e quella domanda continuava a martellarle la testa giorno e notte e questo le creava uno senso di irrequietezza.  

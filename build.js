@@ -106,5 +106,5 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
 })();
 
 function getPageName (page) {
-    return page?.meta?.title || page?.meta?.name || ''
+    return page?.title || page?.name || ''
 }

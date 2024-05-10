@@ -1,8 +1,6 @@
 ---
-title: Capitolo 3
-author: Aalis
-date: 2020-04-22T00:00:00+01:00
-description: Capitolo 3
+title: Il gatto di mana
+index: 2.5
 ---
 # Il gatto di mana
 _Questo capitolo sarà scritto come se lo scrivesse Aalis in prima persona per provare un altro stile, è un intermezzo tra il capitolo 2 e 3 non giocato al tavolo_    

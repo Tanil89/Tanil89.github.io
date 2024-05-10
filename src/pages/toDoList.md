@@ -4,13 +4,16 @@ index: 5
 icon: ra ra-player-dodge
 ---
 ### next tasks:
+* OPZ ricerca all'interno delle pagine
+*  prenire Flash Of Unstyled Content
+* supporto multilingua con fallback sull'inglese
+* componente infobox nell'autoindex da meta. table
+* fix Pages CI
+### Completed:
+* ~~**generatore di sitemap standard e feed RSS**~~
 * ~~ordinare con l'index la lista dei file~~
 * ~~app separata: generatore statico di route da una cartella di file markdown, con meta da header YAML~~
 * ~~**ricerca e navigazione rapida**~~
-* OPZ ricerca all'interno delle pagine
-* ~~**generatore di sitemap standard e feed RSS**~~
-*  prenire Flash Of Unstyled Content
-### Completed:
 * ~~tag opengraph~~
 * ~~`"use strict";` sul codice~~
 * ~~tasti rapidi nella navbar da index al json (quickLinks)~~

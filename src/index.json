@@ -54,62 +54,51 @@
 		]
 	},
 	"children": {
-		"home": {
-			"link": "pages/home.md",
-			"meta": {
-				"title": "Welcome",
-				"icon": "ri-home-2-line",
-				"index": 1
-			}
-		},
 		"characters": {
-			"link": "pages/characters.md",
-			"meta": {
-				"title": "characters",
-				"index": 2,
-				"theme": "aqua",
-				"icon": "ra ra-player-pyromaniac",
-				"table": [
-					"game system",
-					"game type"
-				]
-			},
 			"children": {
 				"Aalis_Wintercrest": {
+					"children": {
+						"Aalis_Wintercrest_BG": {
+							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.md",
+							"meta": {
+								"title": "Aalis' Background",
+								"index": 0.5
+							}
+						},
+						"SulleTracceDellOmbra": {
+							"link": "pages/characters/Aalis_Wintercrest/SulleTracceDellOmbra.md",
+							"meta": {
+								"title": "Sulle Tracce dell'Ombra",
+								"index": 2
+							}
+						},
+						"IlGattoDiMana": {
+							"link": "pages/characters/Aalis_Wintercrest/IlGattoDiMana.md",
+							"meta": {
+								"title": "Il gatto di mana",
+								"index": 2.5
+							}
+						},
+						"UnTuffoNelBuio": {
+							"link": "pages/characters/Aalis_Wintercrest/UnTuffoNelBuio.md",
+							"meta": {
+								"title": "Un Tuffo nel Buio",
+								"index": 3
+							}
+						},
+						"SussurriNelVento": {
+							"link": "pages/characters/Aalis_Wintercrest/SussurriNelVento.md",
+							"meta": {
+								"title": "Sussurri nel vento",
+								"index": 4
+							}
+						}
+					},
 					"link": "pages/characters/Aalis_Wintercrest.md",
 					"meta": {
 						"name": "Aalis Wintercrest",
 						"game system": "Fabula Ultima",
 						"game type": "Campaign"
-					},
-					"children": {
-						"Aalis_Wintercrest_BG": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.md",
-							"meta": {
-								"title": "Aalis' Background"
-							}
-						},
-						"Aalis_Wintercrest_capitolo_2": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2.md",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_3": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_3.md",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_4": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_4.md",
-							"meta": {}
-						},
-						"Aalis_Wintercrest_capitolo_2_1": {
-							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_capitolo_2_1.md",
-							"meta": {
-								"title": "Il gatto di mana",
-								"author": "Aalis",
-								"date": "2020-04-21T23:00:00.000Z",
-								"description": "Capitolo 3"
-							}
-						}
 					}
 				},
 				"Nemesia_Firechild": {
@@ -123,13 +112,32 @@
 						"Nemesia_Firechild": {
 							"link": "pages/characters/Nemesia_Firechild/Nemesia_Firechild.md",
 							"meta": {
-								"title": "Home",
+								"title": "The seed of discord",
 								"game system": "NEMESIA",
 								"game type": "2D"
 							}
 						}
 					}
 				}
+			},
+			"link": "pages/characters.md",
+			"meta": {
+				"title": "characters",
+				"index": 2,
+				"theme": "aqua",
+				"icon": "ra ra-player-pyromaniac",
+				"table": [
+					"game system",
+					"game type"
+				]
+			}
+		},
+		"home": {
+			"link": "pages/home.md",
+			"meta": {
+				"title": "Welcome",
+				"icon": "ri-home-2-line",
+				"index": 1
 			}
 		},
 		"GM": {
