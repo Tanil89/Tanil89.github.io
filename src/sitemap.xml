@@ -31,12 +31,6 @@
                 </url>
             </urlset>
 
-            <urlset https://tanil89.github.io/#!blog/home_blog>
-                <url>
-                    <loc> "https://tanil89.github.io/"
-                </url>
-            </urlset>
-
             <urlset https://tanil89.github.io/#!characters/Aalis_Wintercrest>
                 <url>
                     <loc> "https://tanil89.github.io/"
@@ -44,6 +38,12 @@
             </urlset>
 
             <urlset https://tanil89.github.io/#!characters/Nemesia_Firechild>
+                <url>
+                    <loc> "https://tanil89.github.io/"
+                </url>
+            </urlset>
+
+            <urlset https://tanil89.github.io/#!blog/home_blog>
                 <url>
                     <loc> "https://tanil89.github.io/"
                 </url>

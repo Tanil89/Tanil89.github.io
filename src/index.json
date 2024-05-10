@@ -161,14 +161,18 @@
 			"meta": {
 				"title": "blog",
 				"icon": "ra ra-scroll-unfurled",
-				"index": 4
+				"index": 4,
+				"table": [
+					"date"
+				]
 			},
 			"children": {
 				"home_blog": {
 					"link": "pages/blog/home_blog.md",
 					"meta": {
 						"title": "Why Play Tabletop Roleplaying Games?",
-						"author": "ChatGPT"
+						"author": "ChatGPT",
+						"date": "2024-01-01T11:00:00.000Z"
 					}
 				},
 				"The_importance_of_rules": {

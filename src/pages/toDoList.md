@@ -25,3 +25,4 @@ icon: ra ra-player-dodge
 * ~~supporto markdown con HTML opzionale per gli articoli~~
 * ~~**spostare autoindex da pagina separata a modulo universale, inseribile in altre pagine con un solo elemento senza script**~~
 * ~~**Provare a leggere meta.title || meta.name per le voci in navbar e breadcrumbs**~~
+* ~~sorting e formato ora sull'autoindex~~

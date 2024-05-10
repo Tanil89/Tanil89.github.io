@@ -19,7 +19,7 @@
 	},
 	{
 		"id": 3,
-		"str": "blog blog blog ra ra-scroll-unfurled 4 ",
+		"str": "blog blog blog ra ra-scroll-unfurled 4 date ",
 		"name": "blog",
 		"url": "blog"
 	},
@@ -31,21 +31,21 @@
 	},
 	{
 		"id": 5,
-		"str": "Why Play Tabletop Roleplaying Games? home_blog Why Play Tabletop Roleplaying Games? ChatGPT blog",
-		"name": "Why Play Tabletop Roleplaying Games? (blog)",
-		"url": "blog/home_blog"
-	},
-	{
-		"id": 6,
 		"str": "Aalis Wintercrest Aalis_Wintercrest Aalis Wintercrest Fabula Ultima Campaign characters",
 		"name": "Aalis Wintercrest (characters)",
 		"url": "characters/Aalis_Wintercrest"
 	},
 	{
-		"id": 7,
+		"id": 6,
 		"str": "Nemesia Firechild Nemesia_Firechild Nemesia Firechild Goblin Slayer TTRPG One-shot characters",
 		"name": "Nemesia Firechild (characters)",
 		"url": "characters/Nemesia_Firechild"
+	},
+	{
+		"id": 7,
+		"str": "Why Play Tabletop Roleplaying Games? home_blog Why Play Tabletop Roleplaying Games? ChatGPT Mon Jan 01 2024 12:00:00 GMT+0100 (Ora standard dell’Europa centrale) blog",
+		"name": "Why Play Tabletop Roleplaying Games? (blog)",
+		"url": "blog/home_blog"
 	},
 	{
 		"id": 8,

@@ -128,7 +128,7 @@
 			}),
 		})
 		//.use(window.markdownItTocDoneRight);
-		
+
 		// theme manager
 		const newTheme = localStorage.getItem( '_pageTheme' )
 		if ( newTheme ) document.querySelector( `input[name="theme-dropdown"][value="${newTheme}"]` ).checked = true
@@ -278,8 +278,10 @@
 					autoIndex.push( ` <tr>\n` )
 					autoIndex.push( `<td>${getPageName( _page?.curr?.children[row]) || row}</td>` )
 					_page?.curr?.meta?.table.forEach( meta => {
+						let val = _page?.curr?.children[row].meta[meta]
+						if ( meta == 'date' ) val = new Date(val).toLocaleDateString()
 						if ( _page?.curr?.children[row].meta[meta] ) {
-							autoIndex.push( `<td>${_page?.curr?.children[row].meta[meta]}</td>` )
+							autoIndex.push( `<td>${val}</td>` )
 						} else {
 							autoIndex.push( `<td></td>` )
 						}

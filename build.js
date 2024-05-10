@@ -9,6 +9,22 @@ const sitemap = [`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`];
 const JSON_path = { meta:{}, children: {} };
 
+const naturalSort = function _s (a, b) {
+    if ( a === b )
+        return 0
+
+    _s.intlSort = _s.intlSort || ( new Intl.Collator() ).compare
+
+    const [a2, b2] = [a, b].map( s => s
+        .replace( /[^\wÀ-ſ\s]+/g, '' )
+        .toLowerCase()
+    )
+    if ( a2 !== b2 )
+        return [a2, b2].sort( _s.intlSort )[0] === a2 ? -1 : 1
+
+    return [a, b].sort( _s.intlSort )[0] === a ? -1 : 1
+}
+
 async function JSON_maker ( dir, pages) {
     const dir_content = await fs.readdir( dir )
     if ( dir_content ) {
@@ -75,7 +91,7 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
         const date = ( a[1]?.attributes?.date || Number.MAX_VALUE ) - ( b[1]?.attributes?.date || Number.MAX_VALUE )
         if ( date ) return -date;
 
-        if ( a[0] !== b[0] ) return [a[0], b[0]].sort()[0] === a[0] ? -1 : 1
+        if ( a[0] !== b[0] ) return naturalSort(a[0], b[0])[0] === a[0] ? -1 : 1
     })
     const dictSearch = []
     pages.forEach( ([path, yaml_data], i) => {

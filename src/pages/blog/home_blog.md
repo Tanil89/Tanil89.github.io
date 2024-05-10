@@ -1,6 +1,7 @@
 ---
 title: Why Play Tabletop Roleplaying Games?
 author: ChatGPT
+date: 2024-01-01T12:00:00+01
 ---
 
 # Why Play Tabletop Roleplaying Games?
