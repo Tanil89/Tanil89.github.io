@@ -146,9 +146,14 @@
 		
 		// link handler
 		window.addEventListener('hashchange', async () => {
-			const [_strRouteNew, _idScrollToNew] = decodeURIComponent(window.location.hash).replace( /^#!\/?/, '' ).split( '#' )
+			const hash = window.location.hash
+			const tmp = decodeURIComponent(hash).replace( /^#/, '' ).split( '#' )
+			if ( tmp[0][0] != '!' ) tmp.unshift( _strRoute )
+			const _strRouteNew = tmp[0].replace(/^!\/?/, '')
+			const _idScrollToNew = tmp[1]
 			if  (_strRouteNew === _strRoute) {
 				scrollToID( _idScrollToNew )
+				history.replaceState( history.state, '', `#!${_strRouteNew}#${_idScrollToNew}` )
 			} else {
 				await _refresh()
 			}
@@ -271,13 +276,10 @@
 				if ( !(table.includes('name') || table.includes('title') )) {
 					autoIndex.push('<th>name</th>')
 				}
-				console.log(table)
-				console.log(!(table.name || table.title))
-
 				table.forEach( el => {
 					autoIndex.push( `<th>${el}</th>` )
 				})
-				autoIndex.push( `<th>link</th>` )
+				autoIndex.push( `<th class="text-center">link</th>` )
 				autoIndex.push('\n</tr>\n</thead>\n<tbody>\n')
 				// body
 				Object.keys(_page?.curr?.children).forEach( row => {
@@ -296,7 +298,7 @@
 							autoIndex.push( `<td></td>` )
 						}
 					})
-					autoIndex.push( `<td><a href="#!${_route.join('/')}/${row}" class="no-underline"> <i class="ri-external-link-line"></i></a></td>` )
+					autoIndex.push( `<td class="text-center"><a href="#!${_route.join('/')}/${row}" class="no-underline"> <i class="ri-external-link-line"></i></a></td>` )
 					autoIndex.push( '</tr>\n' )
 				})
 				autoIndex.push('\n</tbody>\n</table>\n</div>')

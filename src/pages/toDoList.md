@@ -5,9 +5,9 @@ icon: ra ra-player-dodge
 ---
 ### next tasks:
 * OPZ ricerca all'interno delle pagine
-*  prenire Flash Of Unstyled Content
+* prenire Flash Of Unstyled Content
 * supporto multilingua con fallback sull'inglese
-* componente infobox nell'autoindex da meta. table
+* componente infobox nell'autoindex da meta.table
 * fix Pages CI
 * mettere dove servono gli attributi aria-hidden, aria-label, aria-labelledby
 ### Completed:
