@@ -58,7 +58,7 @@
 			"link": "pages/home.md",
 			"meta": {
 				"title": "Welcome",
-				"icon": "ri-home-2-line",
+				"icon": "ra ra-castle-flag",
 				"index": 1
 			}
 		},
@@ -67,9 +67,10 @@
 			"meta": {
 				"title": "characters",
 				"index": 2,
-				"theme": "aqua",
+				"theme": "night",
 				"icon": "ra ra-player-pyromaniac",
 				"table": [
+					"name",
 					"game system",
 					"game type"
 				]
@@ -80,14 +81,18 @@
 					"meta": {
 						"name": "Aalis Wintercrest",
 						"game system": "Fabula Ultima",
-						"game type": "Campaign"
+						"game type": "Campaign",
+						"table": [
+							"index",
+							"title"
+						]
 					},
 					"children": {
 						"Aalis_Wintercrest_BG": {
 							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.md",
 							"meta": {
 								"title": "Aalis' Background",
-								"index": 0.5
+								"index": 0
 							}
 						},
 						"SulleTracceDellOmbra": {

@@ -1,6 +1,6 @@
 ---
 title:  "Welcome"
-icon: ri-home-2-line
+icon: ra ra-castle-flag
 index: 1
 ---
 # Welcome
@@ -21,5 +21,5 @@ Since then, I've tried a lot of systems: Sine Requie, Dark Heresy, free form, Wa
 I've also played some LARP (Live Action RolePlay), sometimes as a player, sometimes as an NPC. Honestly, I prefer the NPC role, you can change a lot of characters.  
 I am currently working on a LARP project as a contributor, mainly following the event as a referee, with a focus on combat safety and enemy management.
 
-### Here you can find a selection of my articles
-[Why Play Tabletop Roleplaying Games?](#!blog/WhyPlayTabletopRoleplayingGames?)
+### Links
+[Why Play Tabletop Roleplaying Games?](#!blog/home_blog)

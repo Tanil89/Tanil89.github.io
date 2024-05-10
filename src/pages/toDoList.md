@@ -9,6 +9,7 @@ icon: ra ra-player-dodge
 * supporto multilingua con fallback sull'inglese
 * componente infobox nell'autoindex da meta. table
 * fix Pages CI
+* mettere dove servono gli attributi aria-hidden, aria-label, aria-labelledby
 ### Completed:
 * ~~**generatore di sitemap standard e feed RSS**~~
 * ~~ordinare con l'index la lista dei file~~

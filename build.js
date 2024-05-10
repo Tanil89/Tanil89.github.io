@@ -85,10 +85,10 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
         const lenRoute = a[0].split('/').length - b[0].split('/').length
         if ( lenRoute ) return lenRoute;
 
-        const index = ( a[1]?.attributes?.index || Number.MAX_VALUE ) - ( b[1]?.attributes?.index || Number.MAX_VALUE )
+        const index = ( a[1]?.attributes?.index ?? Number.MAX_VALUE ) - ( b[1]?.attributes?.index ?? Number.MAX_VALUE )
         if ( index ) return index;
 
-        const date = ( a[1]?.attributes?.date || Number.MAX_VALUE ) - ( b[1]?.attributes?.date || Number.MAX_VALUE )
+        const date = ( a[1]?.attributes?.date ?? Number.MAX_VALUE ) - ( b[1]?.attributes?.date ?? Number.MAX_VALUE )
         if ( date ) return -date;
 
         if ( a[0] !== b[0] ) return naturalSort(a[0], b[0])[0] === a[0] ? -1 : 1

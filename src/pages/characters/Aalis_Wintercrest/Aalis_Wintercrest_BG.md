@@ -1,6 +1,6 @@
 ---
 title: Aalis' Background
-index: 0.5
+index: 0
 ---
 # Background
 <figure class="float-left mr-5 mt-5 mb-1 w-48">

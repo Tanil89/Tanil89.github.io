@@ -189,9 +189,9 @@
 			const navlist = [ ]
 			const headers = Array.from( document.querySelector('article').querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]') )
 			if (headers.length) {
-				navlist.push( '<div class="divider divider-accent">Page index</div>' )
+				navlist.push( '<div class="divider divider-accent">Sections</div>' )
 				headers.forEach( el => {
-					navlist.push(`<li><a href="#!${_strRoute}#${el.id}">${el.innerText}</a></li>`)
+					navlist.push(`<li><a class="ms-${(+el.tagName.slice(1, 2)-2)*3}" href="#!${_strRoute}#${el.id}">${el.innerText}</a></li>`)
 				})
 			} 
 
@@ -201,14 +201,14 @@
 
 			// next level
 			if (_page?.curr?.children  ) {
-				navlist.push( '<div class="divider divider-accent"> next level </div>' )
+				navlist.push( `<div class="divider divider-accent"> ${(getPageName(_page.curr) || _route.at(-1).replace(/_/g, ' ')).match( /^.{0,30}\b/ )[0]}</div>` )
 				Object.entries(_page?.curr?.children ).forEach( ([el, obj]) => {
-					navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${getPageName(obj) || el}</a></li>` )
+					navlist.push( `<li><a href="#!${_route.join('/')}/${el}">${getPageName(obj) || el}  </a></li>` )
 				})
 			}
 			// current level
 			if (parent?.children && parent !== DB_json ) {
-				navlist.push( '<div class="divider divider-accent"> current level </div>' )
+				navlist.push( `<div class="divider divider-accent">${(getPageName(parent) || _route.at(-2).replace(/_/g, ' ')).match( /^.{0,30}\b/ )[0]}</div>` )
 				Object.entries(parent?.children).forEach( ([el, obj]) => {
 					navlist.push( `<li><a href="#!${_route.slice(0, -1).join('/')}/${el}">${getPageName(obj) || el}</a></li>` )
 				})
@@ -216,13 +216,13 @@
 			// previous level
 			const grandparent = _page.parents[_page.parents.length-2]
 			if (!_page?.curr?.children && grandparent && grandparent !== DB_json ) {
-				navlist.push( '<div class="divider divider-accent"> previous level </div>' )
+				navlist.push( `<div class="divider divider-accent">${(getPageName(grandparent) || _route.at(-3).replace(/_/g, ' ')).match( /^.{0,30}\b/ )[0]}</div>` )
 				Object.entries(grandparent?.children).forEach( ([el, obj]) => {
 					navlist.push( `<li><a href="#!${_route.slice(0, -2).join('/')}/${el}">${getPageName(obj) || el}</a></li>` )
 				})
 			}
 			// navigation level
-			navlist.push( '<div class="divider divider-accent"> Navigation\'s links </div>' )
+			navlist.push( '<div class="divider divider-accent"> Main Hub </div>' )
 			Object.entries(DB_json.children).forEach( ([el, val]) => {
 				navlist.push( `<li><a href="#!${el}"><i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i>${el.replace("_", " ")}</a> </li>`)
 			})
@@ -257,18 +257,24 @@
 			// breadcrumbs
 			const bread_path = ['<ul>']
 			_route.forEach( (el, i) => {
-				bread_path.push( `<li><a href="#!${_route.slice(0,i+1).join('/')}"><div class="badge badge-neutral ">${el}</div></a></li>` )
+				bread_path.push( `<li><a href="#!${_route.slice(0,i+1).join('/')}"><div class="badge badge-neutral ">${el.replace(/_/g, ' ')}</div></a></li>` )
 			})
 			bread_path.push('</ul>')
 			document.getElementById( 'breadcrumbs_over_article' ).innerHTML = bread_path.join( '\n' )
 
 			// autoindex
 			const autoIndex = []
-			if ( _page?.curr?.meta?.table ){
+			const table = _page?.curr?.meta?.table
+			if ( table ){
 				// header
 				autoIndex.push('<div class="overflow-x-auto ">\n<table class="table hidden md:table">\n<thead class="capitalize">\n<tr>\n')
-				autoIndex.push('<th>name</th>')
-				_page?.curr?.meta?.table.forEach( el => {
+				if ( !(table.includes('name') || table.includes('title') )) {
+					autoIndex.push('<th>name</th>')
+				}
+				console.log(table)
+				console.log(!(table.name || table.title))
+
+				table.forEach( el => {
 					autoIndex.push( `<th>${el}</th>` )
 				})
 				autoIndex.push( `<th>link</th>` )
@@ -276,12 +282,16 @@
 				// body
 				Object.keys(_page?.curr?.children).forEach( row => {
 					autoIndex.push( ` <tr>\n` )
-					autoIndex.push( `<td>${getPageName( _page?.curr?.children[row]) || row}</td>` )
-					_page?.curr?.meta?.table.forEach( meta => {
+					
+					if ( !(table.includes('name') || table.includes('title') )) {
+						autoIndex.push( `<td class='text-center'>${getPageName( _page?.curr?.children[row]) || row.replace(/_/g, ' ')}</td>` )
+					}
+
+					table.forEach( meta => {
 						let val = _page?.curr?.children[row].meta[meta]
 						if ( meta == 'date' ) val = new Date(val).toLocaleDateString()
-						if ( _page?.curr?.children[row].meta[meta] ) {
-							autoIndex.push( `<td>${val}</td>` )
+						if ( _page?.curr?.children[row].meta[meta] !== undefined ) {
+							autoIndex.push( `<td class='text-center'>${val}</td>` )
 						} else {
 							autoIndex.push( `<td></td>` )
 						}
@@ -291,7 +301,7 @@
 				})
 				autoIndex.push('\n</tbody>\n</table>\n</div>')
 			}
-			autoIndex.push(`<ul class="block ${_page?.curr?.meta?.table ? 'md:hidden' : ''}">`)
+			autoIndex.push(`<ul class="block ${table ? 'md:hidden' : ''}">`)
 			Object.entries(_page?.curr?.children || {} ).forEach( ([el, obj]) => {
 				autoIndex.push( `<li><a href="#!${_route.join('/')}/${el}">${getPageName(obj) || el}</a></li>` )
 			})
