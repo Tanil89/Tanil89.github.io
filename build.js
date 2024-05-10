@@ -66,6 +66,9 @@ function add_to_JSON(JSON_path, path_split, link, YAML) {
     let pages = []
     await JSON_maker(directoryPath, pages);
     pages = pages.sort( (a, b) => {
+        const lenRoute = a[0].split('/').length - b[0].split('/').length
+        if ( lenRoute ) return lenRoute;
+
         const index = ( a[1]?.attributes?.index || Number.MAX_VALUE ) - ( b[1]?.attributes?.index || Number.MAX_VALUE )
         if ( index ) return index;
 

@@ -54,9 +54,34 @@
 		]
 	},
 	"children": {
+		"home": {
+			"link": "pages/home.md",
+			"meta": {
+				"title": "Welcome",
+				"icon": "ri-home-2-line",
+				"index": 1
+			}
+		},
 		"characters": {
+			"link": "pages/characters.md",
+			"meta": {
+				"title": "characters",
+				"index": 2,
+				"theme": "aqua",
+				"icon": "ra ra-player-pyromaniac",
+				"table": [
+					"game system",
+					"game type"
+				]
+			},
 			"children": {
 				"Aalis_Wintercrest": {
+					"link": "pages/characters/Aalis_Wintercrest.md",
+					"meta": {
+						"name": "Aalis Wintercrest",
+						"game system": "Fabula Ultima",
+						"game type": "Campaign"
+					},
 					"children": {
 						"Aalis_Wintercrest_BG": {
 							"link": "pages/characters/Aalis_Wintercrest/Aalis_Wintercrest_BG.md",
@@ -93,12 +118,6 @@
 								"index": 4
 							}
 						}
-					},
-					"link": "pages/characters/Aalis_Wintercrest.md",
-					"meta": {
-						"name": "Aalis Wintercrest",
-						"game system": "Fabula Ultima",
-						"game type": "Campaign"
 					}
 				},
 				"Nemesia_Firechild": {
@@ -119,25 +138,6 @@
 						}
 					}
 				}
-			},
-			"link": "pages/characters.md",
-			"meta": {
-				"title": "characters",
-				"index": 2,
-				"theme": "aqua",
-				"icon": "ra ra-player-pyromaniac",
-				"table": [
-					"game system",
-					"game type"
-				]
-			}
-		},
-		"home": {
-			"link": "pages/home.md",
-			"meta": {
-				"title": "Welcome",
-				"icon": "ri-home-2-line",
-				"index": 1
 			}
 		},
 		"GM": {
