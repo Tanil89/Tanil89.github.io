@@ -27,13 +27,13 @@
 	<meta property="og:type" content="website" />
 </head>
 <body>
-	<div class="drawer ">
+	<div class="drawer min-h-screen">
 		<!-- Drawler's toggle -->
 		<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 		<!-- Drawler's content -->
-		<div class="drawer-content">
+		<div class="drawer-content flex flex-col h-full">
 			<!-- NAVBAR -->
-			<div class="navbar bg-base-100 capitalize sticky top-0 z-30">
+			<header class="navbar bg-base-100 capitalize sticky top-0 z-30">
 				<!-- drawer's bottom -->
 				<div class="flex-none">
 					<label for="my-drawer" class="btn btn-primary drawer-button">
@@ -59,26 +59,26 @@
 						</ul>
 					</div>
 				</div>
-			</div>
+			</header>
+			<!-- breadcrumbs -->
+			<div class="text-sm breadcrumbs capitalize w-full max-w-prose mx-auto" id="breadcrumbs_over_article"></div>
 			<!-- MAIN -->
-			<div class="flex flex-col items-center justify-center h-full">
-				<!-- breadcrumbs -->
-				<div class="text-sm breadcrumbs capitalize w-full max-w-prose" id="breadcrumbs_over_article"></div>
+			<div class="flex-auto flex flex-col items-center justify-center">
 				<!-- article -->
 				<article class="prose prose-xl m-5" id="main"></article>
 				<div class="w-full max-w-prose flex justify-between py-10 px-5">
 					<div><a class="btn btn-outline" id="btn_prev">Previous page</a></div>
 					<div><a class="btn btn-outline" id="btn_next">Next</a></div>
 				</div>
-				<!-- footer -->
-				<footer class="footer footer-center p-10 bg-neutral text-neutral-content w-full">
-					<aside class="items-center grid-flow-col ">
-						<p>CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)<br>
-							Made with ♥ by Tanil </p>
-						<img src="assets/Tanil.png" class="h-20">
-					</aside>
-				</footer>
 			</div>
+			<!-- footer -->
+			<footer class="footer footer-center p-10 bg-neutral text-neutral-content w-full">
+				<aside class="items-center grid-flow-col ">
+					<p>CSS Framework: <a href="https://daisyui.com">DaisyUI</a> (built on <a href="https://tailwindcss.com">Tailwind CSS</a>)<br>
+						Made with ♥ by Tanil </p>
+					<img src="assets/Tanil.png" class="h-20">
+				</aside>
+			</footer>
 		</div>
 		<!-- Drawler -->
 		<div class="drawer-side capitalize z-40">
@@ -138,11 +138,69 @@
 			})
 		})
 
+		// debounce helper
+		const debounce = function (fn, msDelay = 150, leading = true, trailing = true) {
+			let timeout
+			let fireTrailing = false
+			return (...args) => {
+				if ( timeout )
+					return fireTrailing = true
+
+				if ( leading )
+					fn.apply( this, args )
+
+				clearTimeout( timeout )
+				timeout = setTimeout( () => {
+					timeout = undefined
+					if ( trailing && fireTrailing )
+						fn.apply( this, args )
+					fireTrailing = false
+				}, msDelay )
+			}
+		}
+
 		// scroll helper
 		function scrollToID (id) {
 			document.getElementById( id )?.scrollIntoView()
 			scrollBy(0, -100)
-		} 
+		}
+
+		// disappearing header
+		document.addEventListener( 'scroll', debounce( function _self (ev) {
+			const PX_MIN_SCROLL = 200
+			const PX_MIN_DIFF = 50
+			_self.header = _self.header ?? document.querySelector( 'header' )
+			_self.prevScroll = _self.prevScroll ?? 0
+			_self.visible = _self.visible ?? true
+			
+			const currScroll = window.pageYOffset
+			const diff =  currScroll - _self.prevScroll
+			
+			if ( _self.visible && diff < 0 )
+				_self.prevScroll = currScroll
+			if ( !_self.visible && diff > 0 )
+				_self.prevScroll = currScroll
+				
+			if ( Math.abs( diff ) < PX_MIN_DIFF )
+				return;
+				
+			if ( currScroll < PX_MIN_SCROLL ) {
+				_self.header.classList.remove( 'transition-transform' )
+				_self.header.classList.remove( '-translate-y-full' )
+				_self.visible = true
+				return;
+			}
+
+			_self.header.classList.add( 'transition-transform' )
+			if ( diff > 0 ) {
+				_self.header.classList.add( '-translate-y-full' )
+				_self.visible = false
+			} else {
+				_self.header.classList.remove( '-translate-y-full' )
+				_self.visible = true
+			}
+			_self.prevScroll = currScroll
+		}))
 		
 		// link handler
 		window.addEventListener('hashchange', async () => {
@@ -335,100 +393,102 @@
 			el.value = ''
 			el.dispatchEvent(new Event('input'))
 		})
-		document.getElementById('search_input' ).addEventListener( 'input', (ev) => {
-			if (ev.target.value) {
-				document.getElementById('search-results' ).classList.remove( 'hidden' )
-				document.getElementById('drawer-list' ).classList.add( 'hidden' )
-				
-				// basic implemantation
-				//const res = _dictSearch.filter( el => el.str.toLowerCase().includes( ev.target.value.//toLowerCase() ) ).map( el => {
-				//return `<li><a href="#!${el.url}">${el.name}</a></li>`
-				//})
-				//document.getElementById('search-results' ).innerHTML = res.join( '\n' )
+		document.getElementById('search_input' ).addEventListener( 'input', debounce(
+			(ev) => {
+				if (ev.target.value) {
+					document.getElementById('search-results' ).classList.remove( 'hidden' )
+					document.getElementById('drawer-list' ).classList.add( 'hidden' )
+					
+					// basic implemantation
+					//const res = _dictSearch.filter( el => el.str.toLowerCase().includes( ev.target.value.//toLowerCase() ) ).map( el => {
+					//return `<li><a href="#!${el.url}">${el.name}</a></li>`
+					//})
+					//document.getElementById('search-results' ).innerHTML = res.join( '\n' )
 
-				const regex = !ev.target.value ? /(.*)/i : new RegExp(
-					'^(.*?)(['
-						+ ev.target.value.split('')
-							.map( c =>
-								c.includes(['\\', ']', '^']) ? '\\'+c : c
-							).join('])(.*?)([')
-						+ '])(.*?)$',
-					'i'
-				)
-				const res = _dictSearch.map( el => {
-					el.matches = ( el.str.match(regex) ||[])
-						.slice(1)
-						.reduce( (list, group, i, or) => {
-							// Initialize first placeholder (always empty) and first matching "sections"
-							if ( i < 2 )
-								list.push( [group] )
-							// If group is second match in a row join to previous section
-							else if ( or[i-1] === '' )
-								list[list.length-1].push( group )
-							// If group is a match create a new section
-							else if ( group !== '')
-								list.push( [group] )
-							return list
-						}, [] )
-						.map( str => str.join('') )
-					return el
-				}) 
-				.filter( o => o.matches.length > 0 ) // Strike non-matching rows
-				.sort( (oA, oB) => {
-					const iA = oA.id, a = oA.matches
-					const iB = oB.id, b = oB.matches
+					const regex = !ev.target.value ? /(.*)/i : new RegExp(
+						'^(.*?)(['
+							+ ev.target.value.split('')
+								.map( c =>
+									c.includes(['\\', ']', '^']) ? '\\'+c : c
+								).join('])(.*?)([')
+							+ '])(.*?)$',
+						'i'
+					)
+					const res = _dictSearch.map( el => {
+						el.matches = ( el.str.match(regex) ||[])
+							.slice(1)
+							.reduce( (list, group, i, or) => {
+								// Initialize first placeholder (always empty) and first matching "sections"
+								if ( i < 2 )
+									list.push( [group] )
+								// If group is second match in a row join to previous section
+								else if ( or[i-1] === '' )
+									list[list.length-1].push( group )
+								// If group is a match create a new section
+								else if ( group !== '')
+									list.push( [group] )
+								return list
+							}, [] )
+							.map( str => str.join('') )
+						return el
+					}) 
+					.filter( o => o.matches.length > 0 ) // Strike non-matching rows
+					.sort( (oA, oB) => {
+						const iA = oA.id, a = oA.matches
+						const iB = oB.id, b = oB.matches
 
-					// Exact match
-					if ( a.length === 1 && b.length !== 1 )
-						return -1
-					if ( a.length !== 1 && b.length === 1 )
-						return 1
+						// Exact match
+						if ( a.length === 1 && b.length !== 1 )
+							return -1
+						if ( a.length !== 1 && b.length === 1 )
+							return 1
 
-					// Most complete groups (alphanumeric)
-					const clean = el => !/^\W*$/.test(el)
-					const cLen = a.filter(clean).length - b.filter(clean).length
-					if ( cLen !== 0 )
-						return cLen
+						// Most complete groups (alphanumeric)
+						const clean = el => !/^\W*$/.test(el)
+						const cLen = a.filter(clean).length - b.filter(clean).length
+						if ( cLen !== 0 )
+							return cLen
 
-					// Least distant first gropus
-					for ( let i = 0; i < Math.min(a.length, b.length)-1; i += 2 ) {
-						const gLen = a[i].length - b[i].length
-						if ( gLen !== 0 )
-							return gLen
-					}
+						// Least distant first gropus
+						for ( let i = 0; i < Math.min(a.length, b.length)-1; i += 2 ) {
+							const gLen = a[i].length - b[i].length
+							if ( gLen !== 0 )
+								return gLen
+						}
 
-					// Most complete groups (raw)
-					const len = a.length - b.length
-					if ( len !== 0 )
-						return len
+						// Most complete groups (raw)
+						const len = a.length - b.length
+						if ( len !== 0 )
+							return len
 
-					// Starts with match (redundant)
-					// const starts = (b[0]==='') - (a[0]==='')
-					// if ( starts !== 0 )
-					// 	return starts
+						// Starts with match (redundant)
+						// const starts = (b[0]==='') - (a[0]==='')
+						// if ( starts !== 0 )
+						// 	return starts
 
-					// Closest to start with match
-					// const off = a[0].length - b[0].length
-					// if ( off !== 0 )
-					// 	return off
+						// Closest to start with match
+						// const off = a[0].length - b[0].length
+						// if ( off !== 0 )
+						// 	return off
 
-					// Ends with match
-					// const ends = (b[b.length-1]==='') - (a[a.length-1]==='')
-					// if ( ends !== 0 )
-					// 	return ends
+						// Ends with match
+						// const ends = (b[b.length-1]==='') - (a[a.length-1]==='')
+						// if ( ends !== 0 )
+						// 	return ends
 
-					// Make the search stable since ECMAScript doesn't mandate it
-					return iA - iB
-				})
-				.map( el => {
-					return `<li><a href="#!${el.url}">${el.name}</a></li>`
-				})
-				document.getElementById('search-results' ).innerHTML = res.join( '\n' )
-			} else {
-				document.getElementById('search-results' ).classList.add( 'hidden' )
-				document.getElementById('drawer-list' ).classList.remove( 'hidden' )
+						// Make the search stable since ECMAScript doesn't mandate it
+						return iA - iB
+					})
+					.map( el => {
+						return `<li><a href="#!${el.url}">${el.name}</a></li>`
+					})
+					document.getElementById('search-results' ).innerHTML = res.join( '\n' )
+				} else {
+					document.getElementById('search-results' ).classList.add( 'hidden' )
+					document.getElementById('drawer-list' ).classList.remove( 'hidden' )
+				}
 			}
-		})
+		))
 
 		// main
 		;(async () => {
