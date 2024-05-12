@@ -46,3 +46,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist # Specifica la cartella da distribuire su GitHub Pages
+          token: ${{ secrets.GITHUB_TOKEN }} # Aggiungi di nuovo il token di GitHub
