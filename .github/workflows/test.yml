@@ -1,0 +1,49 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # Specifica la versione di Node.js necessaria per eseguire il tuo script di build
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build Script
+        run: node build.js
+
+      - name: Archive dist folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download dist folder
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: dist # Specifica la cartella da distribuire su GitHub Pages
+          token: ${{ secrets.GITHUB_TOKEN }} # Assicurati che il tuo token abbia i permessi corretti per eseguire il deploy
