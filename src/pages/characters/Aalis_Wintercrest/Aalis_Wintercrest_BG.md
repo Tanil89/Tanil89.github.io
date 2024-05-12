@@ -19,6 +19,5 @@ As he grew up he devoted himself to studies, oratory for his noble rank, and rel
 Once she completed her studies she returned home and met her friend during a patrol, with training he had become more serious and reliable. She told him about recent monster attacks on outlying villages and convinced her to join the ivory order to protect the helpless. Frederic knew Aalis's temperament and knew it was the right place for her.
 
 Aalis's lived different adventures until now, since she was a cadet and healer, she never was in really danger, she was always protect by Cortes, expect one time.
-## The incident
-
-### proseguire con lo scontro con l'arcanum
+During a quest to investigate about a monster, they found a demon. To let Aalis run away, he fought the demon alone.
+After that event the relationship between Aalis and Cortes become cold and Cortes asked to be free from his duty to the Wintercrest family.
