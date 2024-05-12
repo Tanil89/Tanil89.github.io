@@ -67,27 +67,27 @@
 	},
 	{
 		"id": 11,
-		"str": "Sulle Tracce dell'Ombra SulleTracceDellOmbra Sulle Tracce dell'Ombra 2 Aalis_Wintercrest characters",
+		"str": "Sulle Tracce dell'Ombra Sulle_tracce_dell_ombra Sulle Tracce dell'Ombra 2 Aalis_Wintercrest characters",
 		"name": "Sulle Tracce dell'Ombra (Aalis_Wintercrest)",
-		"url": "characters/Aalis_Wintercrest/SulleTracceDellOmbra"
+		"url": "characters/Aalis_Wintercrest/Sulle_tracce_dell_ombra"
 	},
 	{
 		"id": 12,
-		"str": "Il gatto di mana IlGattoDiMana Il gatto di mana 2.5 Aalis_Wintercrest characters",
+		"str": "Il gatto di mana Il_gatto_di_mana Il gatto di mana 2.5 Aalis_Wintercrest characters",
 		"name": "Il gatto di mana (Aalis_Wintercrest)",
-		"url": "characters/Aalis_Wintercrest/IlGattoDiMana"
+		"url": "characters/Aalis_Wintercrest/Il_gatto_di_mana"
 	},
 	{
 		"id": 13,
-		"str": "Un Tuffo nel Buio UnTuffoNelBuio Un Tuffo nel Buio 3 Aalis_Wintercrest characters",
+		"str": "Un Tuffo nel Buio Un_tuffo_nel_buio Un Tuffo nel Buio 3 Aalis_Wintercrest characters",
 		"name": "Un Tuffo nel Buio (Aalis_Wintercrest)",
-		"url": "characters/Aalis_Wintercrest/UnTuffoNelBuio"
+		"url": "characters/Aalis_Wintercrest/Un_tuffo_nel_buio"
 	},
 	{
 		"id": 14,
-		"str": "Sussurri nel vento SussurriNelVento Sussurri nel vento 4 Aalis_Wintercrest characters",
+		"str": "Sussurri nel vento Sussurri_nel_vento Sussurri nel vento 4 Aalis_Wintercrest characters",
 		"name": "Sussurri nel vento (Aalis_Wintercrest)",
-		"url": "characters/Aalis_Wintercrest/SussurriNelVento"
+		"url": "characters/Aalis_Wintercrest/Sussurri_nel_vento"
 	},
 	{
 		"id": 15,

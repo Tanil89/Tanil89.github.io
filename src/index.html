@@ -229,7 +229,7 @@
 			// navigation level
 			navlist.push( '<div class="divider divider-accent"> Main Hub </div>' )
 			Object.entries(DB_json.children).forEach( ([el, val]) => {
-				navlist.push( `<li><a href="#!${el}"><i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i>${el.replace("_", " ")}</a> </li>`)
+				navlist.push( `<li><a href="#!${el}"><i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i>${el.replace(/_/g, " ")}</a> </li>`)
 			})
 			document.getElementById( 'drawer-list' ).innerHTML = navlist.join( '\n' )
 
@@ -241,14 +241,14 @@
 				const index = keys.indexOf( _route[_route.length-1] )
 
 				if ( index > 0 ) {
-					btnPrev.innerHTML = `<i class="ri-arrow-left-s-line"></i><span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index-1]}</span>`
+					btnPrev.innerHTML = `<i class="ri-arrow-left-s-line"></i><span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index-1].replace( /_/g, ' ')}</span>`
 					btnPrev.href = `#!${_route.slice( 0, -1 ).join( '/' )}/${keys[index-1]}`
 					btnPrev.classList.remove( 'hidden' )
 				} else {
 					btnPrev.classList.add( 'hidden' )
 				}
 				if ( index < keys.length - 1 ) {
-					btnNext.innerHTML = `<span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index+1]}</span><i class="ri-arrow-right-s-line"></i>`
+					btnNext.innerHTML = `<span class="hidden sm:inline">${getPageName( parent?.children[keys[index-1]] ) || keys[index+1].replace( /_/g, ' ')}</span><i class="ri-arrow-right-s-line"></i>`
 					btnNext.href = `#!${_route.slice( 0, -1 ).join( '/' )}/${keys[index+1]}`
 					btnNext.classList.remove( 'hidden' )
 				} else {
@@ -316,6 +316,7 @@
 			document.documentElement.dataset.theme = _page.curr?.meta?.theme || parent?.meta?.theme || DB_json?.meta?.theme
 			const pageTitle = getPageName(_page.curr) || getPageName(parent)
 			document.title = pageTitle ? pageTitle + " | " + DB_json?.meta?.titlepage : DB_json?.meta?.titlepage 
+
 			// Inject article scripts
 			Array.from( document.querySelectorAll( 'textarea[data-script]' ) ).forEach( el => {
 				const newScript = document.createElement( 'script' )
@@ -427,8 +428,6 @@
 				document.getElementById('search-results' ).classList.add( 'hidden' )
 				document.getElementById('drawer-list' ).classList.remove( 'hidden' )
 			}
-
-
 		})
 
 		// main
@@ -437,7 +436,7 @@
 			_dictSearch = await(await fetch( "search.json" )).json()
 			const navlist = [ ]
 			Object.entries(DB_json.children).forEach( ([el, val]) => {
-				navlist.push( `<a class="btn btn-ghost text-xl ${val?.meta?.icon ? '' : 'hidden sm:inline-flex'} " href="#!${el}"> <i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i><span class="hidden sm:inline">${el.replace("_", " ")}</span></a>`)
+				navlist.push( `<a class="btn btn-ghost text-xl ${val?.meta?.icon ? '' : 'hidden sm:inline-flex'} " href="#!${el}"> <i class="${val?.meta?.icon || 'ri-arrow-right-s-line'}"></i><span class="hidden sm:inline">${el.replace(/_/g, " ")}</span></a>`)
 			})
 			document.getElementById( 'nav_links' ).innerHTML = navlist.join( ' ' )
 
@@ -449,8 +448,6 @@
 				)
 			})
 			document.getElementById( 'theme_selector_list' ).innerHTML += theme_array.join( '\n' )
-
-
 			await _refresh()
 		})();
 	</script>
